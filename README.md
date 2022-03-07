@@ -1,5 +1,5 @@
 ## Unicamp
-Este Repositório reune atividades avaliativas que realizei ao longo das minhas formações em Matemática Aplicada e Estatística na UNICAMP.  
+Este Repositório reune atividades avaliativas que realizei ao longo das minhas formações em Matemática Aplicada e Matemática(cursando atualmente) na UNICAMP.  
 O diretório esta dividido em pastas, cada qual representa um curso da graduação. 
   
 **Análise numérica 2:** Implementações de Métodos de Diferenças Finitas (Euler Explícito, Euler Implícito, Runge-Kutta, Regra dos Trapézios (Composta)).   
