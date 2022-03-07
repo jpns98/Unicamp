@@ -1,0 +1,121 @@
+# João Pedro do Nascimento Sandolin
+# RA:176146
+# Atividade de Avaliação 4 - ME315 (Manipulação de Banco de Dados)
+
+library(tidyverse)
+library(RSQLite)
+
+
+# 0=============================================================================
+
+# Sim
+
+# 1=============================================================================
+
+processaDados = function(path){
+  
+  bdfile = file.path(path, "temperaturas.sqlite3")
+  
+  
+  if (file.exists(bdfile))
+    file.remove(bdfile)
+  
+  conexao = dbConnect(SQLite(), bdfile)
+  
+  
+  for (arquivo in list.files(path, pattern = ".csv$")){
+    
+    nome_cidade = arquivo %>% str_remove(".csv") %>%
+      str_remove("station_")
+    
+    arq = file.path(path, arquivo)
+    
+    
+    my_cols = cols_only(YEAR = 'i',JAN = 'd',FEB = 'd',MAR = 'd',
+                        APR = 'd',MAY = 'd',JUN = 'd',JUL = 'd',AUG = 'd',
+                        SEP = 'd',OCT = 'd',NOV = 'd',DEC = 'd')
+    
+    arquivo = read_csv(arq, show_col_types = FALSE,
+                       n_max = 30, col_types = my_cols)
+    
+    
+    input = arquivo %>%
+      mutate( cidade = nome_cidade) %>%
+      pivot_longer("JAN":"DEC",names_to ="mes", values_to ="temperatura" )%>%
+      filter(temperatura != 999.90)
+    
+    dbWriteTable(conexao, "dados", input, append = TRUE)
+      
+    
+    
+  }
+  return(conexao)
+}
+
+path ="Dados"
+
+con = processaDados(path)
+dbGetQuery(con,"SELECT * FROM dados")
+
+
+dbExecute(con,"DROP TABLE dados")
+
+
+# 2=============================================================================
+
+
+visaoMensal = function(conexao, cidade){
+  sql = paste("SELECT YEAR,mes, temperatura from dados ",
+              "WHERE dados.cidade = ","'",
+              cidade,"'",sep = '')
+  
+  dbGetQuery(conexao,sql)
+  
+  dados1%>% ggplot()+
+    geom_point(aes(x = YEAR, y = temperatura))+
+    facet_wrap(~mes)
+  
+}
+
+
+visaoMensal(con, "belem")
+
+
+
+
+# 3=============================================================================
+
+regioes = data.frame(regiao = c("norte","sul",
+                                "nordeste","centro-oeste",
+                                "norte","norte",
+                                "nordeste",
+                                "sudeste",
+                                "nordeste",
+                                "nordeste",
+                                "sudeste",
+                                "sudeste")
+                     , cidade = c("belem","cutitiba",
+                                                     "fortaleza",
+                                                     "goiania",
+                                                     "macapa",
+                                                     "manaus",
+                                                     "recife",
+                                                     "rio",
+                                                     "salvador",
+                                                     "sao_luis",
+                                                     "sao_paulo",
+                                                     "vitoria"))
+dbWriteTable(con, "regioes", regioes)
+
+sql3 = paste("SELECT YEAR as ano, regioes.regiao as regiao, AVG(temperatura) AS temperatura FROM dados ",
+            "LEFT JOIN regioes on dados.cidade = regioes.cidade ",
+            "GROUP BY ano, regiao",sep = '')
+dbGetQuery(con,sql3)
+
+
+# 4=============================================================================
+#Questão 1-  100%
+#Questão 2 - 100%
+#Questão 3 - 30%
+
+

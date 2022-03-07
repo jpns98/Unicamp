@@ -1,0 +1,1485 @@
+(* Content-type: application/vnd.wolfram.player *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       153,          7]
+NotebookDataLength[     63220,       1475]
+NotebookOptionsPosition[     60852,       1420]
+NotebookOutlinePosition[     61489,       1445]
+CellTagsIndexPosition[     61446,       1442]
+WindowTitle->Gaussian Quadrature - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Gaussian Quadrature", "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False,
+ FontColor->RGBColor[
+  0.597406, 0, 
+   0.0527047],ExpressionUUID->"4337a526-dd4c-470a-97de-11bf003bf071"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1: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
+FP/69esnAAAAAAAAAAAAwM74B4thROM=
+   "], {{0, 0}, {1800, 25}}, {0, 255},
+   ColorFunction->RGBColor],
+  ImageSize->{1800, 25},
+  PlotRange->{{0, 1800}, {0, 25}}]], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->
+  False,ExpressionUUID->"d5591ebe-72a6-4955-8ed9-8738ce0fbbc2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"GaussianQuadWeights", "[", 
+    RowBox[{"n_", ",", "a_", ",", "b_"}], "]"}], ":=", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ruledata", "=", 
+       RowBox[{"NIntegrate`GaussRuleData", "[", 
+        RowBox[{"n", ",", "MachinePrecision"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Rescale", "[", 
+         RowBox[{
+          RowBox[{"ruledata", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "b"}], "}"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"b", "-", "a"}], "]"}], 
+         RowBox[{"ruledata", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.386679752778828*^9, 3.386679803405696*^9}, {
+   3.386679858435445*^9, 3.386679892620042*^9}, {3.386679930413477*^9, 
+   3.386679930752264*^9}, {3.386679965136272*^9, 3.386680015474356*^9}, 
+   3.387552029831513*^9},
+ CellID->68061050,ExpressionUUID->"dbacf1c0-bec7-4cd5-9271-ff7a2d7f9c7c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"GQuadPlot", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"{", 
+      RowBox[{"a_", ",", "b_"}], "}"}], ",", "n_", ",", 
+     RowBox[{"max_", " ", ":", "20"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "int", ",", "approxint", ",", "qp", ",", "data", ",", "lp", ",", 
+       "weights", ",", "frst", ",", "lst", ",", "polys", ",", "ep", ",", 
+       "tp"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "=", "x"}], ",", 
+         RowBox[{"i", "=", "i"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"int", " ", "=", " ", 
+         RowBox[{"N", "[", 
+          RowBox[{"Integrate", "[", 
+           RowBox[{
+            RowBox[{"f", "[", "x", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"weights", " ", "=", " ", 
+         RowBox[{"GaussianQuadWeights", "[", 
+          RowBox[{"n", ",", "a", ",", "b"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"approxint", " ", "=", " ", 
+         RowBox[{"Total", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"f", "[", 
+              RowBox[{"First", "[", "#", "]"}], "]"}], "*", 
+             RowBox[{"Last", "[", "#", "]"}]}], "&"}], "/@", "weights"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"frst", "  ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"First", "[", 
+            RowBox[{"weights", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "0"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"lst", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"First", "[", 
+            RowBox[{"weights", "[", 
+             RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", "0"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"polys", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Hue", "[", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                FractionBox[
+                 RowBox[{"GoldenRatio", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "2"}], "]"}], "]"}], " ", "+", " ", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}]}], "2"], 
+                ",", "1"}], "]"}], "]"}], ",", 
+             RowBox[{"Polygon", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "0"}], "}"}], 
+                ",", 
+                RowBox[{"Sequence", "@@", "#"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"2", ",", "1"}], "]"}], "]"}], ",", "0"}], 
+                 "}"}]}], "}"}], "]"}]}], "}"}], "&"}], "/@", 
+          RowBox[{"Partition", "[", 
+           RowBox[{"weights", ",", "2", ",", "1"}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"lp", " ", "=", 
+         RowBox[{"ListPlot", "[", 
+          RowBox[{"weights", ",", 
+           RowBox[{"Filling", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"1", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Axis", ",", "Black"}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Black", ",", 
+              RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}]}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "b"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{"Max", "[", 
+                 RowBox[{"Last", "/@", "weights"}], "]"}]}], "}"}]}], "}"}]}],
+            ",", 
+           RowBox[{"Prolog", "\[Rule]", "polys"}], ",", 
+           RowBox[{"Axes", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+           RowBox[{"Ticks", "\[Rule]", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Part", "[", 
+               RowBox[{
+                RowBox[{"Transpose", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"First", "/@", "weights"}], ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Subscript", "[", 
+                    RowBox[{"x", ",", "#"}], "]"}], "&"}], "/@", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{"1", ",", "n"}], "]"}]}]}], "}"}], "]"}], 
+                "\[IndentingNewLine]", ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"Sequence", " ", "@@", 
+                   RowBox[{"Range", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"n", "-", "2"}], ",", "2"}], "]"}]}], ",", "n"}], 
+                 "}"}]}], "]"}], "\[IndentingNewLine]", ",", "Automatic"}], 
+             "}"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"250", ",", "170"}], "}"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"PlotRangePadding", "\[Rule]", 
+            RowBox[{".2", " ", 
+             RowBox[{"Max", "[", 
+              RowBox[{"Last", "/@", "weights"}], "]"}]}]}], ",", 
+           RowBox[{"Epilog", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Point", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"First", "[", "#", "]"}], ",", "0"}], "}"}], 
+                   "]"}], "&"}], "/@", "weights"}]}], "}"}], ",", 
+              RowBox[{"Part", "[", 
+               RowBox[{
+                RowBox[{"MapIndexed", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Subscript", "[", 
+                    RowBox[{
+                    RowBox[{"TraditionalForm", "[", "w", "]"}], ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"First", "[", "#2", "]"}], "]"}]}], "]"}], ",", 
+                    "#1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"-", "2"}]}], "}"}]}], "]"}], "&"}], ",", 
+                  "weights"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"Sequence", " ", "@@", 
+                   RowBox[{"Range", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"n", "-", "2"}], ",", "2"}], "]"}]}], ",", "n"}], 
+                 "}"}]}], "]"}]}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"qp", " ", "=", " ", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"f", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"Filling", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"1", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Axis", ",", 
+                RowBox[{"Lighter", "[", 
+                 RowBox[{"Green", ",", ".2"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"Epilog", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Black", ",", 
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"First", "[", "#", "]"}], ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"First", "[", "#", "]"}], ",", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"First", "[", "#", "]"}], "]"}]}], "}"}]}], "}"}],
+                     "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"First", "[", "#", "]"}], ",", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"First", "[", "#", "]"}], "]"}]}], "}"}], "]"}]}],
+                     "}"}], "&"}], "/@", "weights"}], ")"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Point", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"First", "[", "#", "]"}], ",", "0"}], "}"}], 
+                   "]"}], "&"}], "/@", "weights"}]}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"250", ",", "170"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"data", " ", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"i", ",", 
+             RowBox[{"GQuad", "[", 
+              RowBox[{"f", ",", 
+               RowBox[{"{", 
+                RowBox[{"a", ",", "b"}], "}"}], ",", "i"}], "]"}]}], "}"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "2", ",", 
+             RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{"{", 
+           RowBox[{"n", ",", "approxint"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"ep", " ", "=", " ", 
+         RowBox[{"ListPlot", "[", 
+          RowBox[{"data", ",", 
+           RowBox[{"Epilog", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "int"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"max", ",", "int"}], "}"}]}], "}"}], "]"}], ",", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<true integral\>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{"max", ",", "int"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "}"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"250", ",", "190"}], "}"}]}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"1", ",", "max"}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"int", "-", 
+                 RowBox[{".3", "*", 
+                  RowBox[{"Abs", "[", "int", "]"}]}]}], ",", 
+                RowBox[{"int", " ", "+", " ", 
+                 RowBox[{".3", "*", 
+                  RowBox[{"Abs", "[", "int", "]"}]}]}]}], "}"}]}], "}"}]}], 
+           ",", 
+           RowBox[{"AxesOrigin", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+           RowBox[{"PlotRangePadding", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"0.2", ",", 
+              RowBox[{".1", "*", 
+               RowBox[{"Abs", "[", "int", "]"}]}]}], "}"}]}], ",", 
+           RowBox[{"FrameTicks", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Range", "[", 
+               RowBox[{"0", ",", "max", ",", "2"}], "]"}], ",", "Automatic"}],
+              "}"}]}], ",", 
+           RowBox[{"Frame", "\[Rule]", " ", 
+            RowBox[{"{", 
+             RowBox[{"True", ",", "True", ",", "False", ",", "False"}], 
+             "}"}]}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<number of points\>\"", ",", "\"\<estimate\>\""}], 
+             "}"}]}], ",", 
+           RowBox[{"RotateLabel", "\[Rule]", "True"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Lighter", "[", 
+               RowBox[{"Green", ",", ".2"}], "]"}], ",", 
+              RowBox[{"PointSize", "[", "Medium", "]"}]}], "}"}]}], ",", 
+           RowBox[{"Filling", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"1", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Bottom", ",", "Black"}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"250", ",", "170"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"tp", " ", "=", " ", "\[IndentingNewLine]", 
+         RowBox[{"Pane", "[", 
+          RowBox[{
+           RowBox[{"Text", "@", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Column", "[", 
+               RowBox[{"{", 
+                RowBox[{"\"\<    \>\"", ",", "\[IndentingNewLine]", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\<   \>\"", ",", 
+                    RowBox[{"Underoverscript", "[", 
+                    RowBox[{"\"\<\[Sum]\>\"", ",", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<i\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<=\>\"", ",", "\"\<1\>\""}], "}"}], "]"}], ",", 
+                    RowBox[{"ToString", "[", "n", "]"}]}], "]"}], ",", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<(\>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{"f", "[", 
+                    SubscriptBox["x", "i"], "]"}], "]"}], ",", "\"\<)\>\""}], 
+                    "}"}], "]"}], ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    SubscriptBox["w", "i"], "]"}]}], "}"}], "]"}], ",", 
+                    "\"\< = \>\"", ",", "approxint"}], "}"}], "]"}], ",", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\< \[TildeEqual] \>\"", ",", 
+                    RowBox[{"Subsuperscript", "[", 
+                    RowBox[{"\"\<\[Integral]\>\"", ",", "a", ",", "b"}], 
+                    "]"}], ",", "\"\<(\>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{"f", "[", "x", "]"}], "]"}], ",", "\"\<)\>\"", 
+                    ",", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<\[DifferentialD]\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                    "]"}]}], "}"}], "]"}], ",", 
+                 RowBox[{"Row", "[", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\< = \>\"", ",", 
+                    RowBox[{"TraditionalForm", "@", 
+                    RowBox[{"N", "[", 
+                    RowBox[{
+                    RowBox[{"Integrate", "[", 
+                    RowBox[{
+                    RowBox[{"f", "[", "x", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], "]"}], ",", 
+                    "20"}], "]"}]}]}], "}"}], "]"}]}], "}"}], "]"}], ",", 
+              "20"}], "]"}]}], ",", "330"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Grid", "[", 
+         RowBox[{"{", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Text", "@", 
+             RowBox[{"Column", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Column", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"\"\<integrand\>\"", ",", "qp"}], "}"}], ",", 
+                   "Center"}], "]"}], ",", 
+                 RowBox[{"Column", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    "\"\<weights and sampling points\>\"", ",", "lp"}], "}"}],
+                    ",", "Center"}], "]"}]}], "}"}], ",", "Center"}], "]"}]}],
+             ",", "\[IndentingNewLine]", 
+            RowBox[{"Column", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"tp", ",", "ep"}], "}"}], ",", "Center", ",", "8.3"}], 
+             "]"}]}], "}"}], "}"}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]",
+     "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.36396622007419*^9, 3.3639662904265*^9}, {
+   3.36396632511372*^9, 3.36396652761358*^9}, {3.36396661496829*^9, 
+   3.36396672896504*^9}, {3.36396699948108*^9, 3.36396710617082*^9}, {
+   3.36404949774081*^9, 3.3640494984344*^9}, {3.36404970279341*^9, 
+   3.36404972102585*^9}, {3.36404975271381*^9, 3.36404981703385*^9}, {
+   3.36404989603074*^9, 3.36405008187166*^9}, {3.36405011203512*^9, 
+   3.36405012813516*^9}, {3.36405055667362*^9, 3.36405055899107*^9}, {
+   3.36405059055393*^9, 3.36405060003813*^9}, {3.36405066078312*^9, 
+   3.3640506623173*^9}, {3.36405077112701*^9, 3.36405083825842*^9}, {
+   3.36405088973331*^9, 3.36405089384666*^9}, {3.36405138268638*^9, 
+   3.36405146396026*^9}, {3.36405151012843*^9, 3.36405152382102*^9}, {
+   3.36405155703265*^9, 3.3640517093141*^9}, {3.36405173957495*^9, 
+   3.36405180712842*^9}, {3.36405193289832*^9, 3.36405196116481*^9}, {
+   3.36405213739134*^9, 3.36405213941786*^9}, {3.3640524307765*^9, 
+   3.36405276256104*^9}, {3.36405285816246*^9, 3.36405289903035*^9}, {
+   3.36405292981963*^9, 3.36405295296022*^9}, {3.36405300564807*^9, 
+   3.36405302892259*^9}, {3.36405311122406*^9, 3.3640531398071*^9}, {
+   3.36405318347197*^9, 3.36405318974409*^9}, {3.36405326492497*^9, 
+   3.36405333704618*^9}, {3.36405345940749*^9, 3.36405351440906*^9}, {
+   3.36405374634324*^9, 3.36405381512384*^9}, {3.36405385299119*^9, 
+   3.3640538946228*^9}, {3.364053936051*^9, 3.36405401572415*^9}, {
+   3.36405405214871*^9, 3.3640540769566*^9}, {3.36405412616919*^9, 
+   3.36405412919763*^9}, {3.36405415963855*^9, 3.36405417247402*^9}, {
+   3.36405427606266*^9, 3.36405444120242*^9}, 3.36405450501261*^9, {
+   3.36405707832374*^9, 3.36405709891709*^9}, {3.36405713546445*^9, 
+   3.36405715654315*^9}, {3.36405719745711*^9, 3.36405724330435*^9}, {
+   3.36405759071913*^9, 3.36405759431596*^9}, {3.36405772937078*^9, 
+   3.3640577430361*^9}, {3.36405777765704*^9, 3.36405780794692*^9}, {
+   3.36405784261467*^9, 3.36405785106879*^9}, {3.36405791385182*^9, 
+   3.36405800372736*^9}, {3.36405807285759*^9, 3.36405807362825*^9}, {
+   3.36405810610067*^9, 3.36405821208409*^9}, {3.36405829357957*^9, 
+   3.3640583328962*^9}, {3.36405839306811*^9, 3.36405840144928*^9}, {
+   3.36405845093239*^9, 3.36405845135413*^9}, {3.36405850083288*^9, 
+   3.36405856081216*^9}, {3.36405872904508*^9, 3.36405878061772*^9}, {
+   3.36405896589445*^9, 3.36405898587071*^9}, {3.36405914763068*^9, 
+   3.3640591682144*^9}, {3.36405930246925*^9, 3.36405930346498*^9}, {
+   3.36405934237214*^9, 3.3640594605674*^9}, {3.36405950648455*^9, 
+   3.36405952754151*^9}, {3.36405961759934*^9, 3.36405967634645*^9}, {
+   3.36406012827197*^9, 3.36406013116803*^9}, {3.36406017517117*^9, 
+   3.36406018425811*^9}, {3.36406028261829*^9, 3.36406029676838*^9}, {
+   3.36406038198666*^9, 3.36406038903347*^9}, {3.36406046877907*^9, 
+   3.36406058398033*^9}, {3.364060636654*^9, 3.3640606373525*^9}, {
+   3.36406067495178*^9, 3.36406074584836*^9}, {3.36406079021593*^9, 
+   3.36406083718604*^9}, {3.36406090427226*^9, 3.36406091066514*^9}, {
+   3.36406124414197*^9, 3.36406127410386*^9}, {3.36408124006274*^9, 
+   3.36408128012012*^9}, {3.36408135392974*^9, 3.36408138423681*^9}, {
+   3.36408150969748*^9, 3.36408153937952*^9}, {3.36408156980459*^9, 
+   3.36408164362817*^9}, {3.36408173957916*^9, 3.36408174659107*^9}, {
+   3.36408319558956*^9, 3.36408320684666*^9}, {3.37038888134375*^9, 
+   3.370388889046875*^9}, {3.370389100328125*^9, 3.370389172609375*^9}, {
+   3.370389264234375*^9, 3.370389326984375*^9}, {3.37038937584375*^9, 
+   3.37038939834375*^9}, {3.386679564373516*^9, 3.386679728243625*^9}, {
+   3.386679810207529*^9, 3.386679829825523*^9}, 3.386679881526741*^9, {
+   3.386845792125*^9, 3.38684582090625*^9}, 3.386845860453125*^9, {
+   3.3875490783782377`*^9, 3.387549081086939*^9}, {3.387549133149876*^9, 
+   3.387549199761362*^9}, {3.3875492789237547`*^9, 3.387549280898941*^9}, {
+   3.3875493262226954`*^9, 3.38754932794805*^9}, {3.3875493836076183`*^9, 
+   3.38754939238068*^9}, 3.387549434157979*^9, {3.387549489860826*^9, 
+   3.387549503339243*^9}, {3.387549727178155*^9, 3.387549770030032*^9}, {
+   3.387549815953464*^9, 3.387549847764703*^9}, {3.387549891725471*^9, 
+   3.387549914292235*^9}, {3.387550002859456*^9, 3.3875500240786133`*^9}, {
+   3.38755008099741*^9, 3.3875500853485126`*^9}, {3.387550170692128*^9, 
+   3.387550174220892*^9}, {3.387550267113778*^9, 3.387550271933193*^9}, {
+   3.387550437971479*^9, 3.3875504412825336`*^9}, {3.387550504999342*^9, 
+   3.387550507116198*^9}, {3.387550553275487*^9, 3.3875506921828938`*^9}, 
+   3.387550748790721*^9, {3.387552065847138*^9, 3.387552094222138*^9}, {
+   3.387556756284638*^9, 3.387556782144013*^9}},
+ CellID->347994681,ExpressionUUID->"064e5d8e-1d6b-4123-a4ef-e4a3b1cb2655"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"GQuad", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"{", 
+      RowBox[{"a_", ",", "b_"}], "}"}], ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Total", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"First", "[", "#", "]"}], "]"}], "*", 
+       RowBox[{"Last", "[", "#", "]"}]}], "&"}], "/@", 
+     RowBox[{"GaussianQuadWeights", "[", 
+      RowBox[{"n", ",", "a", ",", "b"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.35696210375764*^9, 3.370388891953125*^9, 
+  3.386679882692194*^9},
+ CellID->420281442,ExpressionUUID->"767e23e1-0748-4111-8364-55e310a470e9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"funcandrange", " ", "=", " ", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"x", ",", 
+         RowBox[{
+          RowBox[{"3", " ", 
+           RowBox[{"Cos", "[", "x", "]"}]}], " ", "+", " ", 
+          RowBox[{"Sin", "[", "x", "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", 
+         RowBox[{"5", "/", "2"}]}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"x", ",", 
+         RowBox[{
+          RowBox[{"Exp", "[", "x", "]"}], " ", "-", " ", 
+          RowBox[{"x", "^", "2"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"x", ",", 
+         RowBox[{
+          RowBox[{"x", "^", "2"}], " ", "-", "1"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"x", ",", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"9", " ", "x"}], "]"}], " ", "+", " ", 
+          RowBox[{"5", "x"}]}]}], " ", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"x", ",", 
+         RowBox[{
+          RowBox[{"Sin", "[", 
+           RowBox[{"12", " ", "x"}], "]"}], " ", "-", " ", 
+          RowBox[{"x", "^", "2"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "2"}], "}"}]}], "}"}]}], 
+    "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"functions", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Rule", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{"Last", "[", 
+          RowBox[{"First", "[", "#", "]"}], "]"}], "]"}], "]"}], ",", "#"}], 
+      "]"}], "&"}], "/@", " ", "funcandrange"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GetFunc", "[", "str_", "]"}], ":=", " ", 
+   RowBox[{"First", "[", 
+    RowBox[{"str", " ", "/.", " ", "functions"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GetRange", "[", "str_", "]"}], ":=", 
+   RowBox[{"Last", "[", 
+    RowBox[{"str", " ", "/.", " ", "functions"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36408195609793*^9, 3.36408195679108*^9}, {
+   3.36408200310404*^9, 3.36408200416155*^9}, {3.3875492482727757`*^9, 
+   3.387549251079657*^9}},
+ CellID->434209004,ExpressionUUID->"78c4c839-632f-4ec0-aef4-f2bfb9144194"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"GQuadPlot", "[", 
+    RowBox[{
+     RowBox[{"GetFunc", "[", "str", "]"}], " ", ",", 
+     RowBox[{"GetRange", "[", "str", "]"}], ",", "n"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "2", ",", "\"\<number of points\>\""}], "}"}], ",", 
+     "2", ",", "25", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"str", ",", 
+       RowBox[{"functions", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "\"\<integrand\>\""}], 
+      "}"}], ",", 
+     RowBox[{"First", "/@", " ", "functions"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "str"}], "}"}]}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36406113177676*^9, 3.36406114781597*^9}, {
+   3.3703889225625*^9, 3.37038893565625*^9}, {3.379532947375*^9, 
+   3.379532964703125*^9}, 3.37953732059375*^9, 3.38071246415625*^9, 
+   3.380712498828125*^9, {3.38071643728125*^9, 3.3807164374375*^9}, {
+   3.380716473765625*^9, 3.380716478921875*^9}, 3.380717719359375*^9, {
+   3.380717801671875*^9, 3.380717801828125*^9}, 3.3866813554471245`*^9, {
+   3.3866813911346245`*^9, 3.3866813963377495`*^9}},
+ CellID->836559390,ExpressionUUID->"8fa91c40-0f8f-40d0-84ec-886a1603089d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 12, $CellContext`str$$ = 
+    TraditionalForm[E^$CellContext`x - $CellContext`x^2], Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 2, "number of points"}, 2, 25, 1}, {{
+       Hold[$CellContext`str$$], 
+       TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]], 
+       "integrand"}, {
+       TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]], 
+       TraditionalForm[E^$CellContext`x - $CellContext`x^2], 
+       TraditionalForm[-1 + $CellContext`x^2], 
+       TraditionalForm[5 $CellContext`x + Cos[9 $CellContext`x]], 
+       TraditionalForm[-$CellContext`x^2 + Sin[12 $CellContext`x]]}}}, 
+    Typeset`size$$ = {589., {217., 223.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$3122$$ = 0, $CellContext`str$3123$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`n$$ = 2, $CellContext`str$$ = 
+        TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]]}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$3122$$, 0], 
+        Hold[$CellContext`str$$, $CellContext`str$3123$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`GQuadPlot[
+        $CellContext`GetFunc[$CellContext`str$$], 
+        $CellContext`GetRange[$CellContext`str$$], $CellContext`n$$], 
+      "Specifications" :> {{{$CellContext`n$$, 2, "number of points"}, 2, 25, 
+         1, Appearance -> "Labeled"}, {{$CellContext`str$$, 
+          TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]], 
+          "integrand"}, {
+          TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]], 
+          TraditionalForm[E^$CellContext`x - $CellContext`x^2], 
+          TraditionalForm[-1 + $CellContext`x^2], 
+          TraditionalForm[5 $CellContext`x + Cos[9 $CellContext`x]], 
+          TraditionalForm[-$CellContext`x^2 + Sin[12 $CellContext`x]]}, 
+         ControlType -> PopupMenu}}, 
+      "Options" :> {TrackedSymbols :> {$CellContext`n$$, $CellContext`str$$}},
+       "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{640., {279., 285.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(({$CellContext`GQuadPlot[
+          Pattern[$CellContext`f, 
+           Blank[]], {
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]]}, 
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Optional[
+           Pattern[$CellContext`max, 
+            Blank[]], 20]] := 
+        Module[{$CellContext`int, $CellContext`approxint, $CellContext`qp, \
+$CellContext`data, $CellContext`lp, $CellContext`weights, $CellContext`frst, \
+$CellContext`lst, $CellContext`polys, $CellContext`ep, $CellContext`tp}, 
+          
+          With[{$CellContext`x = $CellContext`x, $CellContext`i = \
+$CellContext`i}, $CellContext`int = N[
+              Integrate[
+               $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}]]; $CellContext`weights = \
+$CellContext`GaussianQuadWeights[$CellContext`n, $CellContext`a, \
+$CellContext`b]; $CellContext`approxint = Total[
+              Map[$CellContext`f[
+                 First[#]] 
+               Last[#]& , $CellContext`weights]]; $CellContext`frst = {
+              First[
+               Part[$CellContext`weights, 1]], 0}; $CellContext`lst = {
+              First[
+               Part[$CellContext`weights, $CellContext`n]], 
+              0}; $CellContext`polys = Map[{
+               Hue[
+                Mod[(GoldenRatio (Part[#, 1, 2] + Part[#, 2, 2]))/2, 1]], 
+               Polygon[{{
+                  Part[#, 1, 1], 0}, 
+                 Apply[Sequence, #], {
+                  Part[#, 2, 1], 0}}]}& , 
+              Partition[$CellContext`weights, 2, 1]]; $CellContext`lp = 
+            ListPlot[$CellContext`weights, Filling -> {1 -> {Axis, Black}}, 
+              PlotStyle -> {Black, 
+                PointSize[Large]}, 
+              PlotRange -> {{$CellContext`a, $CellContext`b}, {0, 
+                 Max[
+                  Map[Last, $CellContext`weights]]}}, 
+              Prolog -> $CellContext`polys, Axes -> {True, False}, Ticks -> {
+                Part[
+                 Transpose[{
+                   Map[First, $CellContext`weights], 
+                   Map[Subscript[$CellContext`x, #]& , 
+                    Range[1, $CellContext`n]]}], {1, 
+                  Apply[Sequence, 
+                   Range[3, $CellContext`n - 2, 2]], $CellContext`n}], 
+                Automatic}, ImageSize -> {250, 170}, PlotRangePadding -> 
+              0.2 Max[
+                 Map[Last, $CellContext`weights]], Epilog -> {{Red, 
+                 PointSize[Large], 
+                 Map[Point[{
+                    First[#], 0}]& , $CellContext`weights]}, 
+                Part[
+                 MapIndexed[Text[
+                   Subscript[
+                    TraditionalForm[$CellContext`w], 
+                    ToString[
+                    First[#2]]], #, {0, -2}]& , $CellContext`weights], {1, 
+                  Apply[Sequence, 
+                   Range[
+                   3, $CellContext`n - 2, 
+                    2]], $CellContext`n}]}]; $CellContext`qp = Plot[
+              $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}, Filling -> {1 -> {Axis, 
+                  Lighter[Green, 0.2]}}, Epilog -> {{Black, 
+                 PointSize[Large], 
+                 Map[{
+                   Line[{{
+                    First[#], 0}, {
+                    First[#], 
+                    $CellContext`f[
+                    First[#]]}}], 
+                   Point[{
+                    First[#], 
+                    $CellContext`f[
+                    First[#]]}]}& , $CellContext`weights]}, {Red, 
+                 PointSize[Large], 
+                 Map[Point[{
+                    First[#], 0}]& , $CellContext`weights]}}, 
+              ImageSize -> {250, 170}]; $CellContext`data = 
+            Table[{$CellContext`i, 
+               $CellContext`GQuad[$CellContext`f, {$CellContext`a, \
+$CellContext`b}, $CellContext`i]}, {$CellContext`i, 2, $CellContext`n - 1}]; 
+           AppendTo[$CellContext`data, {$CellContext`n, \
+$CellContext`approxint}]; $CellContext`ep = 
+            ListPlot[$CellContext`data, Epilog -> {
+                
+                Line[{{0, $CellContext`int}, {$CellContext`max, \
+$CellContext`int}}], 
+                Text[
+                "true integral", {$CellContext`max, $CellContext`int}, {
+                 1, -1}]}, ImageSize -> {250, 190}, 
+              PlotRange -> {{
+                1, $CellContext`max}, {$CellContext`int - 0.3 
+                 Abs[$CellContext`int], $CellContext`int + 
+                 0.3 Abs[$CellContext`int]}}, AxesOrigin -> {1, 0}, 
+              PlotRangePadding -> {0.2, 0.1 Abs[$CellContext`int]}, 
+              FrameTicks -> {
+                Range[0, $CellContext`max, 2], Automatic}, 
+              Frame -> {True, True, False, False}, 
+              FrameLabel -> {"number of points", "estimate"}, RotateLabel -> 
+              True, PlotStyle -> {
+                Lighter[Green, 0.2], 
+                PointSize[Medium]}, Filling -> {1 -> {Bottom, Black}}, 
+              ImageSize -> {250, 170}]; $CellContext`tp = Pane[
+              Text[
+               Style[
+                Column[{"    ", 
+                  Row[{"   ", 
+                    Underoverscript["\[Sum]", 
+                    Row[{
+                    Style["i", Italic], "=", "1"}], 
+                    ToString[$CellContext`n]], 
+                    Row[{
+                    Row[{"(", 
+                    TraditionalForm[
+                    $CellContext`f[
+                    Subscript[$CellContext`x, $CellContext`i]]], ")"}], 
+                    TraditionalForm[
+                    Subscript[$CellContext`w, $CellContext`i]]}], 
+                    " = ", $CellContext`approxint}], 
+                  Row[{" \[TildeEqual] ", 
+                    Subsuperscript[
+                    "\[Integral]", $CellContext`a, $CellContext`b], "(", 
+                    TraditionalForm[
+                    $CellContext`f[$CellContext`x]], ")", 
+                    Row[{"\[DifferentialD]", 
+                    Style["x", Italic]}]}], 
+                  Row[{" = ", 
+                    TraditionalForm[
+                    N[
+                    Integrate[
+                    $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}], 20]]}]}], 20]], 330]; Grid[{{
+               Text[
+                Column[{
+                  Column[{"integrand", $CellContext`qp}, Center], 
+                  
+                  Column[{"weights and sampling points", $CellContext`lp}, 
+                   Center]}, Center]], 
+               
+               Column[{$CellContext`tp, $CellContext`ep}, Center, 
+                8.3]}}]]], $CellContext`GaussianQuadWeights[
+          Pattern[$CellContext`n, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]] := 
+        With[{$CellContext`ruledata = 
+           NIntegrate`GaussRuleData[$CellContext`n, MachinePrecision]}, 
+          Transpose[{
+            Rescale[
+             Part[$CellContext`ruledata, 1], {0, 
+             1}, {$CellContext`a, $CellContext`b}], 
+            Abs[$CellContext`b - $CellContext`a] 
+            Part[$CellContext`ruledata, 2]}]], 
+        Attributes[PlotRange] = {ReadProtected}, 
+        Attributes[Subscript] = {NHoldRest}, $CellContext`GQuad[
+          Pattern[$CellContext`f, 
+           Blank[]], {
+           Pattern[$CellContext`a, 
+            Blank[]], 
+           Pattern[$CellContext`b, 
+            Blank[]]}, 
+          Pattern[$CellContext`n, 
+           Blank[]]] := Total[
+          Map[$CellContext`f[
+             First[#]] Last[#]& , 
+           $CellContext`GaussianQuadWeights[$CellContext`n, $CellContext`a, \
+$CellContext`b]]], Attributes[Underoverscript] = {NHoldRest}, 
+        Attributes[Subsuperscript] = {NHoldRest}, $CellContext`GetFunc[
+          Pattern[$CellContext`str, 
+           Blank[]]] := First[
+          
+          ReplaceAll[$CellContext`str, $CellContext`functions]], \
+$CellContext`functions = {
+         TraditionalForm[3 Cos[$CellContext`x] + Sin[$CellContext`x]] -> {
+            
+            Function[$CellContext`x, 3 Cos[$CellContext`x] + 
+             Sin[$CellContext`x]], {-2, 5/2}}, 
+          TraditionalForm[E^$CellContext`x - $CellContext`x^2] -> {
+            
+            Function[$CellContext`x, 
+             Exp[$CellContext`x] - $CellContext`x^2], {-2, 2}}, 
+          TraditionalForm[-1 + $CellContext`x^2] -> {
+            Function[$CellContext`x, $CellContext`x^2 - 1], {-2, 2}}, 
+          TraditionalForm[5 $CellContext`x + Cos[9 $CellContext`x]] -> {
+            
+            Function[$CellContext`x, Cos[9 $CellContext`x] + 
+             5 $CellContext`x], {-2, 2}}, 
+          TraditionalForm[-$CellContext`x^2 + Sin[12 $CellContext`x]] -> {
+            
+            Function[$CellContext`x, 
+             Sin[12 $CellContext`x] - $CellContext`x^2], {-1, 
+            2}}}, $CellContext`GetRange[
+          Pattern[$CellContext`str, 
+           Blank[]]] := Last[
+          ReplaceAll[$CellContext`str, $CellContext`functions]]}; 
+      Typeset`initDone$$ = True); ReleaseHold[
+       HoldComplete[{$CellContext`GaussianQuadWeights[
+            Pattern[$CellContext`n, 
+             Blank[]], 
+            Pattern[$CellContext`a, 
+             Blank[]], 
+            Pattern[$CellContext`b, 
+             Blank[]]] := 
+          With[{$CellContext`ruledata = 
+             NIntegrate`GaussRuleData[$CellContext`n, MachinePrecision]}, 
+            Transpose[{
+              Rescale[
+               Part[$CellContext`ruledata, 1], {0, 
+               1}, {$CellContext`a, $CellContext`b}], 
+              Abs[$CellContext`b - $CellContext`a] 
+              Part[$CellContext`ruledata, 2]}]]; Null, $CellContext`GQuadPlot[
+            Pattern[$CellContext`f, 
+             Blank[]], {
+             Pattern[$CellContext`a, 
+              Blank[]], 
+             Pattern[$CellContext`b, 
+              Blank[]]}, 
+            Pattern[$CellContext`n, 
+             Blank[]], 
+            Optional[
+             Pattern[$CellContext`max, 
+              Blank[]], 20]] := 
+          Module[{$CellContext`int, $CellContext`approxint, $CellContext`qp, \
+$CellContext`data, $CellContext`lp, $CellContext`weights, $CellContext`frst, \
+$CellContext`lst, $CellContext`polys, $CellContext`ep, $CellContext`tp}, 
+            
+            With[{$CellContext`x = $CellContext`x, $CellContext`i = \
+$CellContext`i}, $CellContext`int = N[
+                Integrate[
+                 $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}]]; $CellContext`weights = \
+$CellContext`GaussianQuadWeights[$CellContext`n, $CellContext`a, \
+$CellContext`b]; $CellContext`approxint = Total[
+                Map[$CellContext`f[
+                   First[#]] 
+                 Last[#]& , $CellContext`weights]]; $CellContext`frst = {
+                First[
+                 Part[$CellContext`weights, 1]], 0}; $CellContext`lst = {
+                First[
+                 Part[$CellContext`weights, $CellContext`n]], 
+                0}; $CellContext`polys = Map[{
+                 Hue[
+                  Mod[GoldenRatio ((Part[#, 1, 2] + Part[#, 2, 2])/2), 1]], 
+                 Polygon[{{
+                    Part[#, 1, 1], 0}, 
+                   Apply[Sequence, #], {
+                    Part[#, 2, 1], 0}}]}& , 
+                Partition[$CellContext`weights, 2, 1]]; $CellContext`lp = 
+              ListPlot[$CellContext`weights, Filling -> {1 -> {Axis, Black}}, 
+                PlotStyle -> {Black, 
+                  PointSize[Large]}, 
+                PlotRange -> {{$CellContext`a, $CellContext`b}, {0, 
+                   Max[
+                    Map[Last, $CellContext`weights]]}}, 
+                Prolog -> $CellContext`polys, Axes -> {True, False}, Ticks -> {
+                  Part[
+                   Transpose[{
+                    Map[First, $CellContext`weights], 
+                    Map[Subscript[$CellContext`x, #]& , 
+                    Range[1, $CellContext`n]]}], {1, 
+                    Apply[Sequence, 
+                    Range[3, $CellContext`n - 2, 2]], $CellContext`n}], 
+                  Automatic}, ImageSize -> {250, 170}, PlotRangePadding -> 
+                0.2 Max[
+                   Map[Last, $CellContext`weights]], Epilog -> {{Red, 
+                   PointSize[Large], 
+                   Map[Point[{
+                    First[#], 0}]& , $CellContext`weights]}, 
+                  Part[
+                   MapIndexed[Text[
+                    Subscript[
+                    TraditionalForm[$CellContext`w], 
+                    ToString[
+                    First[#2]]], #, {0, -2}]& , $CellContext`weights], {1, 
+                    Apply[Sequence, 
+                    Range[
+                    3, $CellContext`n - 2, 
+                    2]], $CellContext`n}]}]; $CellContext`qp = Plot[
+                $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}, Filling -> {1 -> {Axis, 
+                    Lighter[Green, 0.2]}}, Epilog -> {{Black, 
+                   PointSize[Large], 
+                   Map[{
+                    Line[{{
+                    First[#], 0}, {
+                    First[#], 
+                    $CellContext`f[
+                    First[#]]}}], 
+                    Point[{
+                    First[#], 
+                    $CellContext`f[
+                    First[#]]}]}& , $CellContext`weights]}, {Red, 
+                   PointSize[Large], 
+                   Map[Point[{
+                    First[#], 0}]& , $CellContext`weights]}}, 
+                ImageSize -> {250, 170}]; $CellContext`data = 
+              Table[{$CellContext`i, 
+                 $CellContext`GQuad[$CellContext`f, {$CellContext`a, \
+$CellContext`b}, $CellContext`i]}, {$CellContext`i, 2, $CellContext`n - 1}]; 
+             AppendTo[$CellContext`data, {$CellContext`n, \
+$CellContext`approxint}]; $CellContext`ep = 
+              ListPlot[$CellContext`data, Epilog -> {
+                  
+                  Line[{{0, $CellContext`int}, {$CellContext`max, \
+$CellContext`int}}], 
+                  Text[
+                  "true integral", {$CellContext`max, $CellContext`int}, {
+                   1, -1}]}, ImageSize -> {250, 190}, 
+                PlotRange -> {{
+                  1, $CellContext`max}, {$CellContext`int - 0.3 
+                   Abs[$CellContext`int], $CellContext`int + 
+                   0.3 Abs[$CellContext`int]}}, AxesOrigin -> {1, 0}, 
+                PlotRangePadding -> {0.2, 0.1 Abs[$CellContext`int]}, 
+                FrameTicks -> {
+                  Range[0, $CellContext`max, 2], Automatic}, 
+                Frame -> {True, True, False, False}, 
+                FrameLabel -> {"number of points", "estimate"}, RotateLabel -> 
+                True, PlotStyle -> {
+                  Lighter[Green, 0.2], 
+                  PointSize[Medium]}, Filling -> {1 -> {Bottom, Black}}, 
+                ImageSize -> {250, 170}]; $CellContext`tp = Pane[
+                Text[
+                 Style[
+                  Column[{"    ", 
+                    Row[{"   ", 
+                    Underoverscript["\[Sum]", 
+                    Row[{
+                    Style["i", Italic], "=", "1"}], 
+                    ToString[$CellContext`n]], 
+                    Row[{
+                    Row[{"(", 
+                    TraditionalForm[
+                    $CellContext`f[
+                    Subscript[$CellContext`x, $CellContext`i]]], ")"}], 
+                    TraditionalForm[
+                    Subscript[$CellContext`w, $CellContext`i]]}], 
+                    " = ", $CellContext`approxint}], 
+                    Row[{" \[TildeEqual] ", 
+                    Subsuperscript[
+                    "\[Integral]", $CellContext`a, $CellContext`b], "(", 
+                    TraditionalForm[
+                    $CellContext`f[$CellContext`x]], ")", 
+                    Row[{"\[DifferentialD]", 
+                    Style["x", Italic]}]}], 
+                    Row[{" = ", 
+                    TraditionalForm[
+                    N[
+                    Integrate[
+                    $CellContext`f[$CellContext`x], {$CellContext`x, \
+$CellContext`a, $CellContext`b}], 20]]}]}], 20]], 330]; Grid[{{
+                 Text[
+                  Column[{
+                    Column[{"integrand", $CellContext`qp}, Center], 
+                    
+                    Column[{"weights and sampling points", $CellContext`lp}, 
+                    Center]}, Center]], 
+                 Column[{$CellContext`tp, $CellContext`ep}, Center, 8.3]}}]]]; 
+         Null, $CellContext`GQuad[
+            Pattern[$CellContext`f, 
+             Blank[]], {
+             Pattern[$CellContext`a, 
+              Blank[]], 
+             Pattern[$CellContext`b, 
+              Blank[]]}, 
+            Pattern[$CellContext`n, 
+             Blank[]]] := Total[
+            Map[$CellContext`f[
+               First[#]] Last[#]& , 
+             $CellContext`GaussianQuadWeights[$CellContext`n, $CellContext`a, \
+$CellContext`b]]]; Null, {
+          HoldComplete[$CellContext`funcandrange = {{
+               
+               Function[$CellContext`x, 3 Cos[$CellContext`x] + 
+                Sin[$CellContext`x]], {-2, 5/2}}, {
+               
+               Function[$CellContext`x, 
+                Exp[$CellContext`x] - $CellContext`x^2], {-2, 2}}, {
+               Function[$CellContext`x, $CellContext`x^2 - 1], {-2, 2}}, {
+               
+               Function[$CellContext`x, Cos[9 $CellContext`x] + 
+                5 $CellContext`x], {-2, 2}}, {
+               
+               Function[$CellContext`x, 
+                Sin[12 $CellContext`x] - $CellContext`x^2], {-1, 2}}}; Null], 
+          HoldComplete[Null], 
+          HoldComplete[$CellContext`functions = Map[Evaluate[
+                TraditionalForm[
+                 Last[
+                  First[#]]]] -> #& , $CellContext`funcandrange]; Null], 
+          HoldComplete[Null], 
+          HoldComplete[$CellContext`GetFunc[
+              Pattern[$CellContext`str, 
+               Blank[]]] := First[
+              ReplaceAll[$CellContext`str, $CellContext`functions]]; Null], 
+          HoldComplete[Null], 
+          HoldComplete[$CellContext`GetRange[
+              Pattern[$CellContext`str, 
+               Blank[]]] := Last[
+              ReplaceAll[$CellContext`str, $CellContext`functions]]; 
+           Null]}}]]; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->439913066,ExpressionUUID->"4719d746-384f-43e3-a19a-595f4404e8c5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["CAPTION", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[
+  0.597406, 0, 
+   0.0527047],ExpressionUUID->"38efaf2c-e7d0-4c1a-b3b4-e761dd6e4e61"],
+
+Cell[TextData[{
+ "Gaussian quadrature with ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "9a20001a-2215-480e-8511-80ec6c6a8acf"],
+ " points gives exact integral estimates for polynomials of degree ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"2", " ", "n"}], "-", "1"}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"5c4025a3-5a03-4902-a8ca-6471118a9afc"],
+ " or less. For smooth functions, increasing the number of points of the \
+Gaussian rule improves the integral estimate."
+}], "Text",ExpressionUUID->"6ac4338e-572c-4035-82d5-02183fae190a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[
+  0.597406, 0, 
+   0.0527047],ExpressionUUID->"7afd9370-02fd-4013-be8b-6921a9bdfcf1"],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Gaussian Quadrature",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/GaussianQuadrature/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/GaussianQuadrature/"],
+ "\"",
+ " from ",
+ ButtonBox["the Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/GaussianQuadrature/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/GaussianQuadrature/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/GaussianQuadrature/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[
+  0.5],ExpressionUUID->"4549b067-adf2-4ae6-9ba5-476db786a139"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Chris Maes",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Chris+Maes"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Chris+Maes"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->5083756,ExpressionUUID->"8d024f55-8402-4e14-b6ff-ed0b2a0bb32a"],
+
+Cell[TextData[{
+ "Additional contributions by: ",
+ ButtonBox["Anton Antonov",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Anton+Antonov"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Anton+Antonov"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->519257583,ExpressionUUID->"fef0c2e0-c31e-4a37-8a44-ea953175c578"],
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[
+  1, 1, 1],ExpressionUUID->"f363b8fd-c3fb-4cd8-9549-c8618edaf929"],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+GaussianQuadrature"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[
+  0.6],ExpressionUUID->"c71b182b-1d29-47a5-a6c4-7ac2b06e8f4a"]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+CellInsertionPointCell->None,
+WindowSize->{1176, 621},
+WindowMargins->{{Automatic, -1184}, {Automatic, -8}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Gaussian Quadrature - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[595, 21, 201, 5, 62, "Section",ExpressionUUID->"4337a526-dd4c-470a-97de-11bf003bf071"],
+Cell[CellGroupData[{
+Cell[821, 30, 3758, 65, 45, "Section",ExpressionUUID->"d5591ebe-72a6-4955-8ed9-8738ce0fbbc2"],
+Cell[4582, 97, 1225, 32, 82, "Input",ExpressionUUID->"dbacf1c0-bec7-4cd5-9271-ff7a2d7f9c7c",
+ CellID->68061050],
+Cell[5810, 131, 22725, 498, 1568, "Input",ExpressionUUID->"064e5d8e-1d6b-4123-a4ef-e4a3b1cb2655",
+ CellID->347994681],
+Cell[28538, 631, 656, 18, 45, "Input",ExpressionUUID->"767e23e1-0748-4111-8364-55e310a470e9",
+ CellID->420281442],
+Cell[29197, 651, 3019, 90, 342, "Input",ExpressionUUID->"78c4c839-632f-4ec0-aef4-f2bfb9144194",
+ CellID->434209004],
+Cell[CellGroupData[{
+Cell[32241, 745, 1558, 35, 82, "Input",ExpressionUUID->"8fa91c40-0f8f-40d0-84ec-886a1603089d",
+ CellID->836559390],
+Cell[33802, 782, 21556, 466, 583, "Output",ExpressionUUID->"4719d746-384f-43e3-a19a-595f4404e8c5",
+ CellID->439913066]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55407, 1254, 271, 8, 46, "Section",ExpressionUUID->"38efaf2c-e7d0-4c1a-b3b4-e761dd6e4e61"],
+Cell[55681, 1264, 597, 13, 56, "Text",ExpressionUUID->"6ac4338e-572c-4035-82d5-02183fae190a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56315, 1282, 417, 11, 44, "Text",ExpressionUUID->"7afd9370-02fd-4013-be8b-6921a9bdfcf1",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[56735, 1295, 944, 25, 35, "Text",ExpressionUUID->"4549b067-adf2-4ae6-9ba5-476db786a139"],
+Cell[57682, 1322, 500, 15, 18, "Text",ExpressionUUID->"8d024f55-8402-4e14-b6ff-ed0b2a0bb32a",
+ CellID->5083756],
+Cell[58185, 1339, 524, 15, 18, "Text",ExpressionUUID->"fef0c2e0-c31e-4a37-8a44-ea953175c578",
+ CellID->519257583],
+Cell[58712, 1356, 873, 25, 100, "Text",ExpressionUUID->"f363b8fd-c3fb-4cd8-9549-c8618edaf929"],
+Cell[59588, 1383, 1248, 34, 89, "Text",ExpressionUUID->"c71b182b-1d29-47a5-a6c4-7ac2b06e8f4a"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

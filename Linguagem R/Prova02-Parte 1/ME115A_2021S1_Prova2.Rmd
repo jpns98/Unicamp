@@ -1,0 +1,188 @@
+---
+title: "ME115 - Linguagem R"
+subtitle: "Turma A - Profa. Tatiana Benaglia"
+author: "Prova 2/Parte 1 - 08/07/2021 - 2021S1"
+date: "NOME:João Pedro do Nascimento Sandolin       RA:176146" 
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r options, echo=FALSE}
+knitr::opts_chunk$set(eval = TRUE, message = FALSE, warning = FALSE,
+                      fig.height = 3.5, fig.width = 6)
+```
+
+## Instruções
+
+* Edite o cabeçalho do arquivo Rmd colocando seu nome e RA. 
+* Lembre-se de alterar a opção `eval = FALSE` no primeiro chunk para que os chunks subsequentes sejam avaliados.
+* Use caminhos relativos para que eu possa executar o seu código no meu computador sem erros e sem ter que editá-lo.
+* Para todos os problemas abaixo, escreva o código para responder cada uma das questões. 
+* Tenha certeza de que o seu arquivo Rmd compila sem erros, gerando um arquivo HTML ou PDF.
+
+
+## Introdução
+
+A Fundação Sistema Estadual de Análise de Dados (SEADE) mantém um painel de dados sobre casos e óbitos relacionados ao coronavírus no Estado de São Paulo a partir de dados oficiais da Secretaria de Estado da Saúde de São Paulo (SES). Um boletim interativo, assim como os dados originais, podem ser acessados em https://www.seade.gov.br/coronavirus/. 
+
+Você irá trabalhar com uma versão compilada desses dados, contendo informações sobre casos e óbitos por data e municípios do Estato de São Paulo. Os dados estão salvos em um  arquivo de nome **covidSP.csv**, disponível no link: 
+
+https://drive.google.com/file/d/1LRm-aQ0zgvjm5PBOKq3N-LhTVcvmv6sU/view?usp=sharing
+
+Salve-o com esse mesmo no seu diretório de trabalho, ou seja, no mesmo diretório onde você salvou o Rmd do enunciado da prova. 
+
+O conjunto de dados possui as seguintes variáveis, mantidas com os mesmos nomes dos dados originais:
+
+* `nome_munic`: Nome do município
+* `datahora`:	Data no formato YYYY-MM-DD
+* `casos_novos`: Casos novos registrados na data
+* `obitos_novos`:	Óbitos novos registrados na data
+* `nome_drs`: Nome do Departamento Regional de Saúde (DRS)
+* `pop`: População Estimada (fonte: SEADE)
+
+
+## Leitura dos Dados
+
+Leia os dados no R e salve-o num objeto chamado `covid`, usando uma função apropriada do pacote `readr`. Verifique se os tipos das colunas estão corretos e modifique-os caso seja necessário. 
+
+```{r}
+library(readr)
+covid <- read_csv("covidSP.csv")
+head(covid)
+```
+
+\newpage
+
+## Problemas
+
+Para cada um dos problemas abaixo, use os verbos do pacote `dplyr` para manipulação de dados e o pacote `ggplot2` para os gráficos. 
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+
+1. **[1.0 ponto]** Encontre a data em que o primeiro caso de COVID-19 foi registrado em cada município e liste os 10 primeiros municípios. Além disso, quando foi registrado o primeiro caso em Campinas? 
+```{r}
+covid %>% filter(casos_novos > 0) %>% group_by(nome_munic) %>%
+  slice_min(datahora) %>% arrange(datahora) %>% head(n=11)
+#10 primeiros municípios desconsiderando "ignorado"
+covid %>% filter(casos_novos > 0) %>% group_by(nome_munic) %>%
+  slice_min(datahora) %>% filter(nome_munic == "Campinas") %>%
+  select(datahora)
+#primeiro cado de Campinas
+```
+
+
+2. **[1.0 ponto]** Usando a função `epiweek()` do pacote `lubridate`, extraia a semana epidemiológica referente à cada data e crie uma nova coluna nos dados `covid` chamada de `semana_epi` que combina a semana epidemiológica com o ano. Por exemplo, o dia 07-07-2021 corresponde à semana 27/2021, enquanto que o dia 01-07-2020 corresponde à semana 27/2020. Dica: `epiweek()` e `year()` do pacote `lubridate` e `str_c()` do pacote `stringr`. 
+```{r}
+library(lubridate)
+library(stringr)
+covid %>% mutate(semana_epi = str_c(epiweek(datahora), year(datahora), sep = "/"))
+
+```
+
+
+
+3. **[1.5 ponto]** Selecione três municípios do Estado de São Paulo de sua preferência. Para esses municípios, crie gráficos de barras para representar as seguintes variáveis: 
+    (a) casos novos/100.000 habitantes por dia 
+    (b) óbitos novos/100.000 habitantes por dia 
+    
+    Use `facet_wrap()` ou `facet_grid()` para criar um painel de gráficos, um para cada  município. 
+
+```{r}
+#a)
+covid %>% filter(nome_munic %in% c("São Paulo","Campinas","Barueri"
+                                   ,"Guarulhos","Vinhedo")) %>%
+  ggplot(aes (x = datahora, y = casos_novos/(pop*100000)))+
+  geom_bar(aes(fill = nome_munic),stat = "identity") +
+  facet_wrap(~ nome_munic)
+
+#b)
+covid %>% filter(nome_munic %in% c("São Paulo","Campinas","Barueri"
+                                   ,"Guarulhos","Vinhedo")) %>%
+  ggplot(aes (x = datahora, y = obitos_novos/(pop*100000)))+
+  geom_bar(aes(fill = nome_munic),stat = "identity") +
+  facet_wrap(~ nome_munic)
+
+```
+
+    
+
+4. **[1.0 ponto]** Calcule o número total de casos e óbitos acumulados até a data para cada município. Você pode usar a função `cumsum()`. Calcule também a taxa de letalidade, ou seja, a razão entre o total de óbitos e total de casos. Chame essas novas variáveis de `obitos`, `casos` e `letalidade`, respectivamente, e adicione-as nos dados `covid`. Dica: depois de usar `group_by()`, use `ungroup()` no final.
+
+```{r}
+covid <- covid %>% group_by(nome_munic) %>% mutate(casos =cumsum(casos_novos),
+                                           obitos = cumsum(obitos_novos),
+                                                           letalidade =
+                                                             obitos/casos) %>%
+  ungroup() 
+
+head(covid)
+```
+
+
+5. **[1.5 ponto]** Considerando apenas o DRS (`nome_drs`) de Campinas, use as variáveis calculadas no item anterior para calcular o número total de casos e óbitos acumulados nesse DRS ao longo do tempo. Faça um gráfico de linha usando `geom_line()` representando o número total de óbitos acumulados até a data. Use também `geom_area()` para preencher a região abaixo da linha.
+
+```{r}
+covid %>% filter(nome_drs == "Campinas") %>% group_by(datahora) %>%
+  summarise(obitos_acumulados = sum(obitos), casos_acumuladas = sum(casos))
+
+covid %>% filter(nome_drs == "Campinas") %>% group_by(datahora) %>%
+  summarise(obitos_acumulados = sum(obitos)) %>%
+    ggplot(aes(x = datahora,y = obitos_acumulados)) +
+  geom_line(color = 1)+
+  geom_area(fill = 4)
+
+
+```
+
+
+
+6.  Quais são os DRS (`nome_drs`) com maior número total de óbitos por 100.000 habitantes atualmente?
+
+    (a) **[1.0 ponto]** Crie um *tibble* chamado `covid_drs` contendo número total de casos e óbitos por 100.000 habitantes na data mais atual (última observação dia 07/07/2021). Imprima esses dados em ordem decrescente de total de óbitos por 100.000 habitantes.
+    (b) **[1.0 ponto]** Faça um gráfico de barras ordenado do número total de óbitos por 100.000 habitantes em 07/07/2021. 
+    
+
+```{r}
+#a)
+covid_drs <- covid %>% filter(datahora == "2021/07/07") %>%
+  group_by(nome_drs) %>%
+  summarise(casos_drs = sum(casos),
+            obitos_drs = sum(obitos), populacao =sum(pop) ) %>%
+  mutate(casos = casos_drs/(populacao*100000),
+         obitos = obitos_drs/(populacao*100000)) %>%
+  select(nome_drs, casos, obitos) %>% arrange(desc(obitos)) %>%
+  na.omit()
+
+covid_drs
+
+#b)
+covid_drs %>% ggplot(aes(x = reorder(nome_drs,obitos), y = obitos))+
+  geom_bar(aes(fill = nome_drs), stat = "identity")
+```
+
+
+7. Considerando o Estado de São Paulo como um todo:
+    
+    (a) **[1.0 ponto]** calcule a média móvel do número de casos novos dos últimos 7 dias. Dica: função `rollmean()` do pacote `zoo` e cheque os argumentos `k`, `na.pad` e `align`.  
+    (b) **[1.0 ponto]** faça um gráfico de barras com o número de casos novos por dia para o Estado de SP. Adicione a esse gráfico uma linha vermelha que representa a média móvel dos últimos 7 dias ao longo do tempo.
+```{r}
+#a)
+
+library(zoo)
+covid  %>% group_by(datahora) %>% summarise( media_movel = rollmean(casos_novos,7)) %>%
+  arrange(desc(datahora)) %>% head(7)
+
+
+#b)
+covid  %>% group_by(datahora) %>% summarise( casos_dia = sum(casos_novos),media_movel = rollmean(casos_novos,7)) %>%
+  arrange(desc(datahora)) %>%
+  ggplot(aes(x = datahora, y =casos_dia)) +
+  geom_bar(aes(fill = datahora),stat = "identity")
+
+```
+    

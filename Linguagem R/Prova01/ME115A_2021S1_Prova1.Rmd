@@ -1,0 +1,150 @@
+---
+title: "ME115 - Linguagem R"
+subtitle: "Turma A - Profa. Tatiana Benaglia"
+author: "Prova 1 - 06/05/2021 - 2021S1"
+date: "NOME:João Pedro do Nascimento Sandolin       RA:176146" 
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r options, echo=FALSE}
+knitr::opts_chunk$set(eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Instruções
+
+* Edite o cabeçalho do arquivo Rmd colocando seu nome e RA. 
+* Lembre-se de alterar a opção `eval = FALSE` no chunk acima para que os chunks subsequentes sejam avaliados.
+* Use caminhos relativos para que eu possa executar o seu código no meu computador sem erros e sem ter que editá-lo.
+* Para todos os problemas abaixo, escreva o código para responder cada uma das questões. 
+* Tenha certeza de que o seu arquivo .Rmd compila sem erros, gerando um arquivo HTML ou pdf.
+
+
+## Introdução
+
+Você irá trabalhar com uma versão compilada dos dados Gapminder (http://www.gapminder.org/data/). Os dados estão em anexo no arquivo  "`gapminder.csv`". Salve-o com esse mesmo nome num subdiretório chamado `dados/`, criado no seu diretório de trabalho, ou seja, mesmo diretório onde você salvou o Rmd do enunciado da prova. 
+
+O conjunto de dados possui as seguintes informações:
+
+* `country`: país
+* `continent`: continente 
+* `year`: ano
+* `lifeExp`: expectativa de vida (em anos)
+* `pop`: população
+* `gdpPercap`: PIB per capita
+
+
+## Problemas
+
+1. Leitura dos Dados
+
+    a. Use a função apropriada para mostrar que no seu diretório de trabalho existe um diretório chamado `dados` e nele tem o arquivo "`gapminder.csv`".
+    ```{r}
+    list.files()
+    list.files("dados/")
+    ```
+    
+
+    b. Leia os dados no R e salve-o num objeto chamado `gm`, usando uma função tal que o objeto resultante seja um  `tibble`. Verifique se os tipos das colunas estão corretos e modifique-os caso seja necessário. 
+
+    ```{r}
+        gm <- readr::read_csv("dados/gapminder.csv")
+        class(gm)
+    ```
+
+    c. Você irá trabalhar com uma amostra dos dados. Para isso, execute o código a seguir colocando o seu RA como argumento da função `set.seed()`. Descreva em poucas palavras o que o chunk abaixo está fazendo.
+
+    ```{r}
+        set.seed(176146)  # insira seu RA aqui
+        idx <- sample(1:nrow(gm), 300)
+        gm <- gm[-idx, ]
+    ```
+      Neste chunk, estão sendo selecionadas 300 numeros aleatórias entre 1 e `r nrow(gm)` e em sequencia, excluindo as linhas que correspondem a estes números.
+      
+    d. Use funções apropriadas para descrever os seus dados `gm`. Cite o número de variáveis, número de observações e os nomes das variáveis que ele armazena.
+  o conjunto de dados gm possui `r ncol(gm)` variáveis, `r nrow(gm)` observações e armazena as sequintes variáveis:`r names(gm)`
+
+2. Criando vetores.
+
+    a. Crie um vetor chamado `continentes`, cujos elementos são os continentes representados nos dados, sem digitar os nomes dos continentes diretamente. 
+    ```{r}
+    continentes <- unique(gm$continent)
+    ```
+
+    b. Use a função `seq()` para criar um vetor com os anos representados em `gm` e chame-o de  `anos`. 
+    ```{r}
+    anos <- unique(gm$year)
+    ```
+    
+
+    c. Adicione uma nova coluna ao objeto `gm` chamada `gdp` (PIB). Lembre-se que `gdpPercap` = `gdp`/`pop`. Portanto, o PIB (`gdp`) pode ser calculado diretamente a partir dos dados.
+    ```{r}
+    gm$gdp=gm$gdpPercap*gm$pop
+    ```
+    
+
+ 
+3. Quantos países distintos temos representados por continente? Dica: veja as funções `subset()` e `unique()`.
+
+    a. Usando um `for` _loop_, construa uma lista cujos elementos são o número de países distintos em cada continente. Os nomes dos elementos da lista deve ser os continentes. 
+    ```{r}
+    n_paises <- list(0,0,0,0,0)
+    for(i in 1:length(continentes)) {
+      
+      n_paises[i] <- length(unique(subset(gm, continent == continentes[i])$country))
+      
+    }
+    names(n_paises) <- continentes
+    ```
+
+    b. Escreva uma função chamada `conta_paises()` tal que, para um dado continente, retorna o número de países distintos para aquele continente. Essa função deverá ter um argumento obrigatório chamado `continente` e um argumento opcional chamado de `dados`, cujo _default_ é `gm`. 
+
+    ```{r}
+            conta_paises <- function(continente,dados = gm){
+              
+              n <- length(unique(subset(dados, continent ==  continente)$country))
+              
+            }
+    ```
+
+    c. Usando uma função da família _apply_ e a sua função `conta_paises()`, construa um vetor nomeado cujos elementos são o número de países distintos em cada continente.
+    ```{r}
+    mapply(FUN = conta_paises,continentes, USE.NAMES = T)
+    
+    ```
+    
+        
+        
+4. Usando uma função da família _apply_, calcule a expectativa de vida média para cada ano e para cada continente. Armazene esse resultado em uma matriz chamada `meanLifeExp`, sendo os anos representados nas linhas sejam e os continentes nas colunas.
+    ```{r}
+    meanLifeExp <- apply(gm ,FUN= funtion(x) mean(x$lifeExp), MARGIN = c("year","continent"))
+    
+    ```
+
+
+5. Extraindo informação de um data frame por ano e salvando em arquivos.
+
+    a. Escreva uma função chamada `ordene_ano()` que extraia um subconjunto dos dados `gm` para um determinado ano e ordene-o em ordem descrescente de expectativa de vida (`lifeExp`). A função, além de retornar o data frame ordenado, deve também exportá-lo o para um arquivo `csv` dentro de um diretório. Por exemplo, se o usuário escolheu o ano 2007, o arquivo salvo será "`gapminder_2007.csv`". Dica: `order()`.
+    
+        A função deverá ter os seguintes argumentos:
+    
+        * `ano`: argumento obrigatório com o ano a ser considerado
+        * `dir`: diretório onde o arquivo será salvo, com default sendo o subdiretório `dados/`
+        * `dados`: data frame `gm` como default
+    
+    ```{r}
+            ordene_ano <- function(ano,dir="dados/",dados=gm){
+              set_anos <- subset(gm, year==ano)
+              set_anos$lifeExp = order(set_anos$lifeExp, decreasing = TRUE)
+              write_csv(set_anos, file = paste0(dir,gapminder_ano.csv))
+              
+            }
+    ```
+
+    b. Vetorize a função acima e chame-a de `ordene_anos()`, de modo que o usuário possa colocar como argumento um vetor de anos. A função deverá salvar um arquivo separado e identificado para cada ano especificado. Por exemplo:
+    
+        Usuário define: `ano = c(1997, 2002)` e `dir = dados`  
+        Função salva: "`dados/gapminder_1997.csv`" e "`dados/gapminder_2002.csv`"
+

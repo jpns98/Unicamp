@@ -1,0 +1,113 @@
+---
+title: "Prova 2/Parte 2"
+author: "João Pedro do Nascimento Sandolin"
+date: "10/07/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+acidentes <- read_delim(file = "csv/datatran2020.csv", delim = ";", locale = locale(encoding = "latin1"))
+```
+
+## Banco de Dados
+  O conjunto de dados escolhido para a atividade é o "datatran2020.csv" disponível em https://www.kaggle.com/mcamera/brazil-highway-traffic-accidents.
+  
+  
+Este conjunto de dados contempla os registros das ocorrências de acidentes de trânsito no ano de 2020. Estes dados foram coletados pela Polícia Rodoviária Federal e disponibilizados no site do Ministério da Justiça e segurança pública.
+
+
+Neste conjunto de dados, cada linha representa uma ocorrência distinta, descrita por 27 informações contidas nas seguintes variáveis:
+        
+        
+.  
+* `data_inversa`: Data da ocorrência no formato DD/MM/YYYY  
+* `dia_semana`: Dia da semana da ocorrência  
+* `horario`: Horário da ocorrência no formato HH:MM:SS.  
+* `uf`: Unidade da Federação.  
+* `br`: Identificação da rodovia federal.  
+* `km`:Identificação do quilômetro onde ocorreu o acidente.  
+* `municipio`: Nome do município de ocorrência.  
+* `causa_acidente`: Principal causa do acidente.  
+* `tipo_acidente`:Identificação do tipo de acidente.  
+* `classificação_acidente`: Classificação quanto à gravidade do acidente
+* `sentido_via`:Sentido da via considerando o ponto de colisão.  
+* `condição_meteorologica`: Condição meteorológica do momento do acidente.  
+* `tipo_pista`: Tipo da pista considenrando a quantidade de faixas.  
+* `tracado_via`: Descrição do traçado da via.  
+* `uso_solo`: Descrição sobre as características do local do acidente.  
+* `latitude`:Latitude do local do acidente em formato geodésico decimal.
+* `longitude`:Longitude do local do acidente em formato geodésico decimal.  
+* `pessoas`: Total de pessoas envolvidas na ocorrência.  
+* `mortos`: Total de obitos decorrentes do acidente.  
+* `feridos_leves`:Total de pessoas com ferimentos leves envolvidas na ocorrência.  
+* `feridos_graves`:Total de pessoas com ferimentos graves envolvidas na ocorrência.  
+* `feridos`: Total de pessoas feridas envolvidas na ocorrência (é a soma dos feridos leves com os graves).  
+* `ilesos`:Total de pessoas ilesas envolvidas na ocorrência.  
+* `ignorados`:Total de pessoas envolvidas na ocorrência e que não se soube o estado físico.  
+* `veiculos`: Total de veículos envolvidos na ocorrência.  
+
+
+
+
+3)O horário de acontecimento do acidente está relacionado ao km em que ocorreu na rodovia BR-101?
+
+```{r}
+
+acidentes %>% select(horario, km, br) %>% filter(br==101) %>%
+  ggplot(aes(x=horario, y = as.numeric(km))) +
+  geom_point(aes( color = as.numeric(horario), alpha = 0.1)
+             , show.legend = FALSE) +
+  scale_y_continuous(breaks=seq(0,1000,100)) +
+  labs(y = "km")
+
+acidentes2 <-acidentes
+acidentes2$horario <- as.period(acidentes2$horario)
+acidentes2$km <- as.numeric(acidentes2$km)
+
+acidentes2%>% filter(br==101) %>%
+  select(horario,km) %>% summary()
+
+```
+Pode-se concluir que não existe uma relação clara entre o horario do acidente (variável contínua) com o km onde ocorreu(variável contínua): em todos os horários os acidentes estão concentrados na faixa de 0 à 350 km. Assim como a distribuição dos horarios não se altera de acordo com a quilometragem da via (km).
+
+Portanto, não existe uma relação perceptível entre estas variáveis.
+
+6) O horário está relacionado ao dia da semana de ocorrimento do acidente?
+```{r}
+library(lubridate)
+acidentes1 <- acidentes
+acidentes1$dia_semana <- factor(acidentes1$dia_semana,
+                                levels= c("segunda-feira", "terça-feira"
+                                          , "quarta-feira", "quinta-feira"
+                                          , "sexta-feira", "sábado", "domingo"))
+
+acidentes1 <- acidentes1[order(acidentes1$dia_semana),]
+
+acidentes1 %>% ggplot(aes(x = dia_semana, y = horario)) +
+  geom_boxplot(aes(fill = dia_semana)) +
+  labs(x = "dia da semana")
+acidentes1$horario <- as.period(acidentes1$horario)
+tapply(acidentes1$horario, acidentes1$dia_semana, summary)
+```
+
+
+Podemos concluir que existe uma relação entre o horario (variável contínua) com o dia da semana(variável categórica).
+
+A media e as máximas dos horários são crescentes ao decorrer da semana, desta forma, estes valores são maiores ao fim da semana (sexta, sábado e domingo), ou seja, os acidentes ocorrem mais tarde nesses dias.
+
+
+Cálculo do fuso horário a partir da latitude e longitude em que o acidente ocorreu
+```{r}
+acidentes1$latitude <- as.numeric(acidentes1$latitude)
+acidentes1$longitude <- as.numeric(acidentes1$longitude)
+
+tz_lookup_coords(lat = acidentes$latitude[1], lon = acidentes$longitude[1])
+```
+

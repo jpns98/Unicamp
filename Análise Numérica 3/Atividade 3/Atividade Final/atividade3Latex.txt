@@ -1,0 +1,372 @@
+\documentclass{article}
+\input{cabecalho}
+
+\title{Atividade 3}
+\author{
+Daniela Cortes - RA230142\\
+João Pedro do Nascimento Sandolin - RA176146\\
+Thiago Felipe Castro Carrenho - RA224831}
+
+\pgfplotsset{compat=1.16}
+\begin{document}
+
+\maketitle
+
+\vspace{2cm}
+
+\begin{center}
+
+\includegraphics[width=3cm]{Unicamp.png}
+
+\textbf{Universidade Estadual de Campinas}
+
+\textbf{Instituto de Matemática, Estatística e Computação Científica}
+
+\textbf{MT623 Turma A - Métodos dos Elementos Finitos 1S2021}
+
+\textbf{MS712 Turma A - Análise Numérica III 1S2021}
+
+\textbf{Prof.: Maicon Ribeiro Correa}
+
+\vspace{2cm}
+
+\textbf{Atividade 3}
+
+Exercícios 6, 7 e 8 da Lista 4
+
+\end{center}
+    
+\newpage
+
+Seja a seguinte formulação variacional:
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Problema V:}
+Encontrar $u \in \mathcal{U}=\mathcal{H}_0^1(0,1)$ tal que 
+
+\begin{equation}
+    \int_0^1 (\alpha u' v' + \gamma uv) dx = \int_0^1 v dx \ \ \forall \ v \in \mathcal{U}, 
+\end{equation}
+com $\alpha>0$ e $\gamma>0$.
+
+\vspace{0.3cm}
+
+Tome agora $\alpha=1$ e $\gamma=0$ e considere o problema variacional
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Problema D:}
+Encontrar $u \in \mathcal{U}=\mathcal{H}_0^1(0,1)$ tal que 
+
+\begin{equation}
+    \int_0^1 u'v'dx=\int_0^1 vdx \ \ \forall \ v \in \mathcal{U},
+\label{ProblemaD}
+\end{equation}
+neste caso, a matriz de rigidez e o vetor de cargas associados a um elemento linear (dois nós), de tamanho $h^e$ são dados por
+
+\begin{equation*}
+    K^e = \dfrac{1}{h^e}
+    \left[
+    \begin{array}{cc}
+        1 & -1 \\
+        -1 & 1 
+    \end{array}
+    \right]
+    \ \ \ \text{e} \ \ \
+    \mathbf{f}^e = \dfrac{h^e}{2}
+    \left[
+    \begin{array}{c}
+        1 \\
+        1 
+    \end{array}
+    \right]
+\end{equation*}
+respectivamente. Já para um elemento quadrático (três nós), também de tamanho $h^e$, temos
+
+\begin{equation*}
+    K^e = \dfrac{1}{3h^e}
+    \left[
+    \begin{array}{ccc}
+        7 & -8 & 1 \\
+        -8 & 16 & -8 \\
+        1 & -8 & 7 
+    \end{array}
+    \right]
+    \ \ \ \text{e} \ \ \
+    \mathbf{f}^e = \dfrac{h^e}{6}
+    \left[
+    \begin{array}{c}
+        1 \\
+        4 \\
+        1 
+    \end{array}
+    \right]
+    .
+\end{equation*}
+
+\section*{Exercício 6}
+
+\noindent
+Determine qual o número mínimo de pontos na fórmula de quadratura
+gaussiana necessário para integrar exatamente a matriz de rigidez elementar associada à forma bilinear do \textbf{Problema V},
+
+\begin{equation}
+\label{bili}
+    a(u,v)=\int_0^1 \Big(\alpha u^\prime v^\prime +\gamma uv\Big) dx
+\end{equation}
+se são utilizados espaços lagrangeanos:
+
+\begin{enumerate}[a)]
+    \item Lineares.
+    \item Quadráticos.
+    \item De grau n.
+\end{enumerate}
+
+\subsection*{Resposta:}
+
+Para a forma bilinear, equação \eqref{bili}, temos que a matriz de rigidez associada é dada por:
+
+\begin{equation}
+    K_{ij}=\int_0^1\left(\alpha\Phi^\prime_i\Phi^\prime_j+\gamma\Phi_i\Phi_j\right)dx,
+\end{equation}
+com $i,j\in {1,\dots,n}$ e $\Phi_i, \Phi_j$ são as funções base.
+
+Lembre que, 
+\begin{equation}
+    K_{ij}=\int_{\Omega_1}+ \dots + \int_{\Omega_n},
+\end{equation}
+onde, $\Omega_i$ denotam os elementos.
+
+Logo, para o caso \textbf{linear} temos que a função a integrar em cada partição $(\Omega_i)$, vai ser no máximo de grau dois. Então, precisamos 2 pontos na fórmula de quadratura gaussiana, $(-\frac{\sqrt{3}}{3},\frac{\sqrt{3}}{3})$, e com estes dois pontos conseguimos ter os dois pontos necessários em cada partição para que a integração numérica seja exata.
+
+Agora, no caso \textbf{quadrático}, vemos que o polinômio de grau máximo a integrar em cada elemento $(\Omega_i)$ é de grau 4. Portanto, precisamos 3 pontos da quadratura gaussiana para integrar pois, a ordem do polinômio da quadratura é $2n-1$, e com os 3 pontos integrar em cada partição para que a integração seja exata.
+
+Por último no caso de \textbf{grau n}, temos que em cada partição o polinômio a integrar vai ser de grau $2n$, logo precisamos de $n+1$ pontos da quadratura gaussiana para integrar exatamente, e com os $n+1$ pontos conseguimos integrar em cada partição e assim obter a integração numérica exata.
+
+\section*{Exercício 7}
+
+\noindent
+Repita o exercício anterior para a forma bilinear do \textbf{Problema D}.
+
+\subsection*{Resposta:}
+
+A análise deste é similar ao da anterior, entretanto, a matriz de rigidez para a forma bilinear do \textbf{Problema D}, equação \eqref{ProblemaD} é:
+
+\begin{equation}
+    K_{ij}=\int_0^1\Phi^\prime_i\Phi^\prime_jdx,
+\end{equation}
+logo, em cada partição o polinômio a integrar vai ser de, no máximo, grau $2(n-1)$, então, precisamos de $n$ pontos na quadratura gaussiana para obter a integração numérica exata.
+
+\section*{Exercício 8}
+
+\noindent
+Utilize os resultados dos \textbf{Exercícios 5 e 6}, para construir um programa baseado em quadratura gaussiana que calcule exatamente a matriz de rigidez de um elemento finito de tamanho $h^e$, associado ao \textbf{Problema V}. O programa deverá cobrir o uso de polinômios lineares, quadráticos e cúbicos pelo menos.
+
+\begin{enumerate}[a)]
+    \item Utilize o programa para resolver problemas em que sejam conhecidas as soluções analíticas e calcule a norma $\mathcal{L}^2(0,1)$ do erro
+    
+    $$||u-u_{h}||_0 = \left(\int_0^1 [u(x)-u_h(x)]^2 dx \right)^{1/2},$$
+    comparando seu valor para uso de polinômios de diferentes graus, com diferentes refinamentos da malha.
+    
+    \item Repita, para a seminorma $\mathcal{H}^1(0,1)$ do erro
+    
+    $$|u-u_{h}|_1 = \left(\int_0^1 \left[\dfrac{du(x)}{dx}-\dfrac{du_h(x)}{dx}\right]^2 dx \right)^{1/2}.$$
+\end{enumerate}
+
+\subsection*{Resposta a):}
+ Para calcular as normas, foi utilizada a seguinte aproximação baseada nos pontos de quadratura gaussiana:
+$$||u-u_{h}||^2 = \sum_{e}^{N_e}\int_0^1 [u(x)-u_h(x)]^2 dx ^{1/2}=\int_e f(x) dx =$$\\$$  \sum_{e}^{N_e}\frac{h^e}{2} \int_\num{-1}^1f(x(\xi))d\xi\approx  \sum_{e}^{N_e}\frac{h^e}{2}\sum_{l}^{N_G}w_lf(x(\xi_l))d\xi$$\\
+Com $f=[u-u_h]^2 $ para a norma $\mathcal{L}^2(0,1)$\\
+e $f=\left[\frac{du(x)}{dx}-\frac{du_h(x)}{dx}\right]^2 $ para a seminorma $\mathcal{H}^1(0,1)$\\
+
+A partir do \textbf{Exercício 6}, temos que para integrar exatamente polinômios lineares, quadráticos e cúbicos, ele deve usar, pelo menos, 4 pontos na integração numérica por quadratura gaussiana. Exemplificamos  com as seguintes equações diferenciais:
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Problema I:} Encontrar $u \in \mathcal{U}$ tal que 
+
+\begin{equation}
+    -u''+u=x \ \ \forall \ x \in \Omega = (0,1),
+\end{equation}
+satisfazendo as condições de contorno
+
+\begin{equation*}
+    u(0)=u(1)=0,
+\end{equation*}
+onde $\mathcal{U}$ é o espaço das funções duas vezes diferenciáveis que satisfazem $u(0)=u(1)=0$.
+
+\noindent
+A solução analítica desse problema é
+
+\begin{equation}
+    u_e(x)=x-\dfrac{\sinh{x}}{\sinh{1}}
+    \label{ue1}
+\end{equation}
+
+\vspace{0.3cm}
+
+Para este problema, temos $\alpha =1$, $\gamma=1$, $f(x)=x$. Computamos a solução aproximada para $n=5$ e $n=10$, onde $n$ é o número de pontos usados na integração numérica pelo método da quadratura gaussiana, com intervalos regulares, usando elementos lineares e elementos quadráticos, obtendo os seguintes resultados, em forma de gráfico:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Gráficos/PI lin 5.jpeg}
+    \caption{Comparação da solução exata com a solução aproximada do Problema 1 com $n=5$ usando elementos lineares}
+    \label{PI lin 5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Gráficos/PI lin 10.jpeg}
+    \caption{Comparação da solução exata com a solução aproximada do Problema 1 com $n=10$ usando elementos lineares}
+    \label{PI lin 10}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Gráficos/PI quad 5.jpeg}
+    \caption{Comparação da solução exata com a solução aproximada do Problema 1 com $n=5$ usando elementos quadráticos}
+    \label{PI quad 5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Gráficos/PI quad 10.jpeg}
+    \caption{Comparação da solução exata com a solução aproximada do Problema 1 com $n=10$ usando elementos quadráticos}
+    \label{PI quad 10}
+\end{figure}
+
+A norma $\mathcal{L}^2(0,1)$ do erro para cada uma das soluções aproximadas acima está apresentada na tabela abaixo:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $n$ & Elementos & Gráfico & $||u-u_{h}||_0$ \\ \hline
+        5 & Lineares & Figura \ref{PI lin 5} & 0.0204359 \\ \hline 
+        10 & Lineares & Figura \ref{PI lin 10} & 0.00644424 \\ \hline 
+        5 & Quadráticos & Figura \ref{PI quad 5} & 0.0203493 \\ \hline 
+        10 & Quadráticos & Figura \ref{PI quad 10} & 0.00642696 \\ \hline 
+    \end{tabular}
+    \caption{Norma $\mathcal{L}^2(0,1)$ do erro para as soluções aproximadas.}
+    \label{tab:my_label1}
+\end{table}
+
+Com estas informações, podemos, primeiro, concluir a convergência do método, e que o aumento de pontos significa um aumento da precisão do algoritmo. É possível ver nos algoritmos em que foram usados elementos lineares a estrutura linear por partes da solução. Além disso, para um mesmo $n$, a solução com elementos quadráticos mostrou cometer um erro levemente menor que a solução com elementos lineares. Por fim, é interessante mostrar que, apesar de na "norma do olho", o gráfico da Figura \ref{PI quad 5} mostrar uma melhor aproximação que o gráfico da Figura \ref{PI lin 10}, isto é, parece que as linhas estão mais próximas, numericamente, a melhor solução (a que cometeu menor erro) entre essas duas foi a que usa elementos lineares com 10 pontos.
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Problema II:} Encontrar $u \in \mathcal{U}$ tal que 
+
+\begin{equation}
+    -u''+u=-1+\frac{x(x-1)}{2} \ \ \forall \ x \in \Omega = (0,1),
+\end{equation}
+satisfazendo as condições de contorno
+
+\begin{equation*}
+    u(0)=u(1)=0,
+\end{equation*}
+onde $\mathcal{U}$ é o espaço das funções duas vezes diferenciáveis que satisfazem $u(0)=u(1)=0$.
+
+\noindent
+A solução analítica dessa EDO é
+
+\begin{equation}
+    u_e(x)=\frac{x(x-1)}{2}
+    \label{ue}
+\end{equation}
+
+\vspace{0.3cm}
+
+Para este problema, tomamos $\alpha=1, \gamma=1$ e $f=-1+\frac{x(x-1)}{2}$ e  diferentes refinamentos para $n=5$, $n=10, n=15$ e $n=20$, onde $n$ é o número de elementos. A continuação apresentamos os resultados usando elementos lineares:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Gráficos/n=5.png}
+    \caption{Comparação da solução exata com a solução aproximada com $n=5$}
+    \label{Li5}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Gráficos/n=10.png}
+    \caption{Comparação da solução exata com a solução aproximada com $n=10$}
+    \label{Li10}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Gráficos/n=15.png}
+    \caption{Comparação da solução exata com a solução aproximada com $n=15$}
+    \label{Li15}
+\end{figure}
+
+Nos gráficos \ref{Li5}, \ref{Li10} e \ref{Li15}, podemos observar que geometricamente a solução numérica está muito próxima da solução exata do \textbf(problema II).\\
+
+Agora, fazemos uma tabulação da norma $\mathcal{L}^2(0,1)$ do erro para cada uma das soluções aproximadas e do erros relativos com o objetivo de apreciar melhor a aproximação numérica. Lembrando que,
+
+\begin{equation*}
+   \mathrm{Erro  \ Relativo \ na \ } ||.||_\beta=\frac{||U_e-\mathrm{Sol. \
+   Aprox.}||_\beta}{||U_e||_\beta}
+\end{equation*}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $n$ & Elementos & $||u-u_{h}||_0$ &Erro Relativo na $||\dot||_0$ \\ \hline
+        5 & Lineares & 0.00368& 4.035\% \\ \hline 
+        10 & Lineares & 0.00095 &1.043\%\\ \hline 
+        15 & Lineares & 0.00044 &0.488\%\\ \hline 
+        20& Lineares & 0.00026&0.292\%\\ \hline
+        \end{tabular}
+    \caption{Norma $\mathcal{L}^2(0,1)$ do erro para as soluções aproximadas.}
+    \label{tab2}
+\end{table}
+
+Note que na tabela \ref{tab2}, a partir de $n=15$ o erro relativo é menor que $1\%$.
+
+\subsection*{Resposta b):}
+
+Para o \textbf{Problema I}, a seminorma $\mathcal{H}^1(0,1)$ do erro para cada uma das soluções aproximadas encontradas no item a) está apresentada na tabela abaixo:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $n$ & Elementos & Gráfico & $|u-u_{h}|_1$ \\ \hline
+        5 & Lineares & Figura \ref{PI lin 5} & 0.193586 \\ \hline 
+        10 & Lineares & Figura \ref{PI lin 10} & 0.116969 \\ \hline 
+        5 & Quadráticos & Figura \ref{PI quad 5} & 0.191067 \\ \hline 
+        10 & Quadráticos & Figura \ref{PI quad 10} & 0.115918 \\ \hline 
+    \end{tabular}
+    \caption{Seminorma $\mathcal{H}^1(0,1)$ do erro para as soluções aproximadas.}
+    \label{tab:my_label2}
+\end{table}
+
+Com estes resultados, vemos que esta seminorma apresenta valores um pouco maiores que a norma analisada no item a), mostrando que o valor exato é mais bem aproximado que sua derivada, mas esta ainda sim é aproximada. O padrão de erro é o mesmo do item anterior, melhorando (diminuindo), conforme $n$ cresce, e para um mesmo $n$, levemente menor para os casos em que elementos quadráticos foram usados.\\
+
+Para o \textbf{Problema II}, a seminorma $\mathcal{H}^1(0,1)$ do erro para cada uma das soluções aproximadas encontradas no item a) está apresentada na tabela abaixo:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $n$ & Elementos & $|u-u_{h}|_1$ &Erro Relativo na $Seminorma \  \mathcal{H}^1(0,1)$ \\ \hline
+        5 & Lineares & 0.005782& 20.032\% \\ \hline 
+        10 & Lineares & 0.028922 &10.018\%\\ \hline 
+        15 & Lineares & 0.01928 &6.679\%\\ \hline 
+        20& Lineares & 0.01446&5.009\%\\ \hline
+        \end{tabular}
+    \caption{Norma $\mathcal{L}^2(0,1)$ do erro para as soluções aproximadas.}
+    \label{tab}
+\end{table}
+
+Note que na tabela \ref{tab}, há uma grande diferença entre os erros relativos e a norma  $\mathcal{L}^2(0,1)$, isto tal vez acontece pelo fato de que as funções bases lineares definidas não são diferenciáveis e o operador derivada não é contínuo.
+
+\end{document}

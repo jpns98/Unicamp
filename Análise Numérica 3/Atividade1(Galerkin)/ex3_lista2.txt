@@ -1,0 +1,15 @@
+
+3a)
+A matriz A obtida pelo programa utilizando a base polinomial não é diagonal. Este resultado é esperado devido à utilização de funções não ortogonais para a composição da base do subespaço ${V}_h$ e, consequentemente, para a construção da matriz de rigidez.
+||A-At ||(2)=0.268294
+||A-At ||(Infinity)=0.333787
+||f-ft ||(2)=0.00786904
+||f-ft ||(Infinity)=0.00333333
+Estas normas da diferença entre as matrizes de rigidez e fonte obtidas pelo exercício 1a) (At e ft) e as matrizes obtidas pelo programa (A e F) mostram que, apesar de próximas, o erro introduzido pela integração numérica impede que sejam iguais e o mal condicionamento da matriz de rigidez do programa resulta em erros significativos na resolução do problema.
+Diferente da base polinomial, a matriz A para a base senoidal deve ser diagonal, uma vez que utilizamos funções ortogonais para compor a base do subespaço ${V}_h$ e construir a matriz A. Porém, não foi obtida uma matriz diagonal no programa devido aos erros introduzidos pela integração numérica via regra dos trapézios compostos.
+
+
+3b)
+||W-Wt ||(2)=480.443
+||W-Wt ||(infinty)=322.231
+Estas normas da diferença entre as coordenadas do obtidas no exercício 1b)(Wt) e as coordenadas obtidas pelo programa(W) mostram que o aumento da dimensão da matriz de rigidez com base polinomial gerou uma matriz extremamente mal condicionada que, por sua vez, amplificou de forma significativa os erros introduzidos pela integração numérica.

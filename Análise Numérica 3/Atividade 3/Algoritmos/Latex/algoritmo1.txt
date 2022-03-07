@@ -1,0 +1,61 @@
+Algoritmo1\\
+Método de elementos finitos utilizando elementos lineares e regra da quadratura gaussiana, com 4 pontos, para integração numérica\\\\
+integral numérica com quadratura gaussiana:\par
+GaussQ[g, n, a, b] := 
+ Total[g[First[\#]]*Last[\#] & /@ GaussianQuadratureWeights\par[n, a, b]]\\\\
+dados:\par
+$\alpha$ = 1; $\gamma$ = 1;
+u0 = 0; u1 = 0;
+n = 20; h = 1/n; np = 4; m = n + 1
+f[x] := x\\\\
+base polinomial linear\par
+$\varphi$ = {InterpolatingPolynomial[{t{-1, 1}, {1, 0}}, $\xi$], 
+  InterpolatingPolynomial\par [{{-1, 0}, {1, 1}}, $\xi$]}\\\\
+K = $\alpha$ *(2/h)*
+   Table[GaussQ[
+     D[$\varphi$[[r]], $\xi$]*
+        D[$\varphi$[[s]], $\xi$] /. $\xi$ \rightarrow \# &, np, -1, 1], {r, 
+     2}, {s, 2}]\\ + $\gamma$*(h/2)*
+   Table[GaussQ[$\varphi$[[r]]*$\varphi$[[s]] /. $\xi$ \rightarrow \# &, 
+     np, -1, 1], {r, 2}, {s, 2}]\\\\
+F1 = ConstantArray[0, {n + 1}]\\
+For[i = 1, i < m, i = i + 1,\par
+  F1[[i ;; i + 1]] = \par
+  F1[[i ;; i + 1]] + (h/2)*\par
+    Table[GaussQ[((f[x] /. 
+            x \rightarrow (h*(i - 1) + 
+               h/2*($\xi$ + 1)))*$\varphi$[[r]]) /. $\xi$ \rightarrow \# &, \par
+      np, -1, 1], {r, 2}]\\
+ ]\\\\
+K1 = ConstantArray[0, {n + 1, n + 1}]\\
+For[i = 1, i < m, i = i + 1,\par
+ K1[[i ;; i + 1, i ;; i + 1]] = K1[[i ;; i + 1, i ;; i + 1]] + K
+ 
+ ]\\\\
+impondo condições de contorno\par
+F1[[1]] = u0\par
+F1[[m]] = u1\par
+F1[[2]] = F1[[2]] - K1[[2, 1]]*u0\par
+F1[[m - 1]] = F1[[m - 1]] - K1[[m - 1, m]]*u1\par
+K1[[1, 1 ;; 2]] = {1, 0}\par
+K1[[1 ;; 2, 1]] = {1, 0}\par
+K1[[m, m - 1 ;; m]] = {0, 1}\par
+K1[[m - 1 ;; m, m]] = {0, 1}\\\\
+w = LinearSolve[K1, F1]\\\\
+LagrangeP[
+  p1] := {Piecewise[{{InterpolatingPolynomial[{{p1, 1}, {p1 + h, 0}},
+       x]
+      \par , p1 \leq x \leq p1 + h}}, 0], 
+  Piecewise[{{InterpolatingPolynomial[{{p1, 0\par}, {p1 + h, 1}}, x], 
+     p1 \leq x \leq p1 + h}}, 0]}\\
+     \\
+W1 = {w[[1]]}\\
+For[i = 2, i < m, i++,\par
+ W1 = Join[W1, ConstantArray[w[[i]], {2}]]
+ ]\par
+W1 = Join[W1, {w[[m]]}]\\\\
+For[i = 1, i <= n, i++,\par
+ AppendTo[$\Phi$, LagrangeP[(i - 1)*h][[1]]];\par
+ AppendTo[$\Phi$, LagrangeP[(i - 1)*h][[2]]]\\
+ ]\\\\
+Uh[x] := W1.$\Phi$ 

@@ -1,0 +1,28 @@
+Tn=função para integração numerica via regra dos trapezios composta
+n=numero de elementos para a base polinomial
+k=numero de intervalos para a integração numerica via regra dos trapezios composta
+
+Algoritmo 1-método de Galerkin para base polinomial utilizando integral numerica
+
+Tn[f_, {a_, b_, m_}] := 0.5*((b - a)/m)*(f[a] + f[b] + Sum[2*f[a + (i*(b - a))/m], {i, 1, m - 1}])	//Integração numerica
+\[Phi] = Table[x^i*(x - 1), {i, 1, n}]	 //construção da base para o subespaço ${V}_h$
+K = Table[Tn[D[\[Phi][[j]], x]*D[\[Phi][[n]], x] + \[Phi][[j]]*\[Phi][[n]] /. x -> # &, 0, 1, k], {j, n}, {n, n}]	//matriz de rigidez
+F = Table[Tn[x*\[Phi][[j]] /. x -> # &, 0, 1, 5], {j, 1, n}]
+W = LinearSolve[K, F]	//vetor coordenadas
+Uh[x_] := W.\[Phi]	//solução
+
+Algoritmo 2-método de Galerkin para base senoidal utilizando integral numerica
+Tn[f_, {a_, b_, m_}] := 0.5*((b - a)/m)*(f[a] + f[b] + Sum[2*f[a + (i*(b - a))/m], {i, 1, m - 1}])	//Integração numerica
+\[Phi] = Table[Sin[i*Pi*x], {i, 1, n}]	 //construção da base para o subespaço ${V}_h$
+K = Table[Tn[D[\[Phi][[j]], x]*D[\[Phi][[n]], x] + \[Phi][[j]]*\[Phi][[n]] /. x -> # &, 0, 1, k], {j, n}, {n, n}]	//matriz de rigidez
+F = Table[Tn[x*\[Phi][[j]] /. x -> # &, 0, 1, 5], {j, 1, n}]
+W = LinearSolve[K, F]	//vetor coordenadas
+Uh[x_] := W.\[Phi]	//solução
+
+Algoritmo 3-método de Galerkin para base polinomial utilizando integral analítica
+\[Phi] = Table[x^i*(x - 1), {i, 1, n}]	 //construção da base para o subespaço ${V}_h$
+K = Table[Integrate[D[\[Phi][[j]], x]*D[\[Phi][[n]], x] + \[Phi][[j]]*\[Phi][[n]], {x, 0, 1}], {j, n}, {n, n}]	//matriz de rigidez
+F = Table[Integrate[x*\[Phi][[j]], {x, 0, 1}], {j, 1, n}]
+W = LinearSolve[k, f]	//vetor coordenadas
+Uh[x_] := w.\[Phi]	//solução
+

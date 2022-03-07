@@ -1,0 +1,143 @@
+country,continent,year,lifeExp
+Japan,Asia,2007,82.603
+"Hong Kong, China",Asia,2007,82.208
+Iceland,Europe,2007,81.757
+Switzerland,Europe,2007,81.701
+Australia,Oceania,2007,81.235
+Spain,Europe,2007,80.941
+Sweden,Europe,2007,80.884
+Israel,Asia,2007,80.745
+France,Europe,2007,80.657
+Canada,Americas,2007,80.653
+Italy,Europe,2007,80.546
+New Zealand,Oceania,2007,80.204
+Norway,Europe,2007,80.196
+Singapore,Asia,2007,79.972
+Austria,Europe,2007,79.829
+Netherlands,Europe,2007,79.762
+Greece,Europe,2007,79.483
+Belgium,Europe,2007,79.441
+United Kingdom,Europe,2007,79.425
+Germany,Europe,2007,79.406
+Finland,Europe,2007,79.313
+Ireland,Europe,2007,78.885
+Costa Rica,Americas,2007,78.782
+Puerto Rico,Americas,2007,78.746
+"Korea, Rep.",Asia,2007,78.623
+Chile,Americas,2007,78.553
+Taiwan,Asia,2007,78.4
+Denmark,Europe,2007,78.332
+Cuba,Americas,2007,78.273
+United States,Americas,2007,78.242
+Portugal,Europe,2007,78.098
+Slovenia,Europe,2007,77.926
+Kuwait,Asia,2007,77.588
+Czech Republic,Europe,2007,76.486
+Reunion,Africa,2007,76.442
+Albania,Europe,2007,76.423
+Uruguay,Americas,2007,76.384
+Mexico,Americas,2007,76.195
+Croatia,Europe,2007,75.748
+Oman,Asia,2007,75.64
+Bahrain,Asia,2007,75.635
+Poland,Europe,2007,75.563
+Panama,Americas,2007,75.537
+Argentina,Americas,2007,75.32
+Ecuador,Americas,2007,74.994
+Bosnia and Herzegovina,Europe,2007,74.852
+Slovak Republic,Europe,2007,74.663
+Montenegro,Europe,2007,74.543
+Vietnam,Asia,2007,74.249
+Malaysia,Asia,2007,74.241
+Syria,Asia,2007,74.143
+Serbia,Europe,2007,74.002
+Libya,Africa,2007,73.952
+Tunisia,Africa,2007,73.923
+Venezuela,Americas,2007,73.747
+West Bank and Gaza,Asia,2007,73.422
+Hungary,Europe,2007,73.338
+Bulgaria,Europe,2007,73.005
+China,Asia,2007,72.961
+Nicaragua,Americas,2007,72.899
+Colombia,Americas,2007,72.889
+Mauritius,Africa,2007,72.801
+Saudi Arabia,Asia,2007,72.777
+Jamaica,Americas,2007,72.567
+Jordan,Asia,2007,72.535
+Romania,Europe,2007,72.476
+Sri Lanka,Asia,2007,72.396
+Brazil,Americas,2007,72.39
+Algeria,Africa,2007,72.301
+Dominican Republic,Americas,2007,72.235
+Lebanon,Asia,2007,71.993
+El Salvador,Americas,2007,71.878
+Turkey,Europe,2007,71.777
+Paraguay,Americas,2007,71.752
+Philippines,Asia,2007,71.688
+Peru,Americas,2007,71.421
+Egypt,Africa,2007,71.338
+Morocco,Africa,2007,71.164
+Iran,Asia,2007,70.964
+Indonesia,Asia,2007,70.65
+Thailand,Asia,2007,70.616
+Guatemala,Americas,2007,70.259
+Honduras,Americas,2007,70.198
+Trinidad and Tobago,Americas,2007,69.819
+"Korea, Dem. Rep.",Asia,2007,67.297
+Mongolia,Asia,2007,66.803
+Bolivia,Americas,2007,65.554
+Sao Tome and Principe,Africa,2007,65.528
+Pakistan,Asia,2007,65.483
+Comoros,Africa,2007,65.152
+India,Asia,2007,64.698
+Mauritania,Africa,2007,64.164
+Bangladesh,Asia,2007,64.062
+Nepal,Asia,2007,63.785
+Senegal,Africa,2007,63.062
+"Yemen, Rep.",Asia,2007,62.698
+Myanmar,Asia,2007,62.069
+Haiti,Americas,2007,60.916
+Ghana,Africa,2007,60.022
+Cambodia,Asia,2007,59.723
+Iraq,Asia,2007,59.545
+Gambia,Africa,2007,59.448
+Madagascar,Africa,2007,59.443
+Sudan,Africa,2007,58.556
+Togo,Africa,2007,58.42
+Eritrea,Africa,2007,58.04
+Niger,Africa,2007,56.867
+Gabon,Africa,2007,56.735
+Benin,Africa,2007,56.728
+Guinea,Africa,2007,56.007
+"Congo, Rep.",Africa,2007,55.322
+Djibouti,Africa,2007,54.791
+Mali,Africa,2007,54.467
+Kenya,Africa,2007,54.11
+Ethiopia,Africa,2007,52.947
+Namibia,Africa,2007,52.906
+Tanzania,Africa,2007,52.517
+Burkina Faso,Africa,2007,52.295
+Equatorial Guinea,Africa,2007,51.579
+Uganda,Africa,2007,51.542
+Botswana,Africa,2007,50.728
+Chad,Africa,2007,50.651
+Cameroon,Africa,2007,50.43
+Burundi,Africa,2007,49.58
+South Africa,Africa,2007,49.339
+Cote d'Ivoire,Africa,2007,48.328
+Malawi,Africa,2007,48.303
+Somalia,Africa,2007,48.159
+Nigeria,Africa,2007,46.859
+"Congo, Dem. Rep.",Africa,2007,46.462
+Guinea-Bissau,Africa,2007,46.388
+Rwanda,Africa,2007,46.242
+Liberia,Africa,2007,45.678
+Central African Republic,Africa,2007,44.741
+Afghanistan,Asia,2007,43.828
+Zimbabwe,Africa,2007,43.487
+Angola,Africa,2007,42.731
+Lesotho,Africa,2007,42.592
+Sierra Leone,Africa,2007,42.568
+Zambia,Africa,2007,42.384
+Mozambique,Africa,2007,42.082
+Swaziland,Africa,2007,39.613

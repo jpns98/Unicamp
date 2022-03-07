@@ -1,0 +1,91 @@
+# João Pedro do Nascimento Sandolin
+# RA:176146
+# Atividade de Avaliação 4 - ME315 (Manipulação de Banco de Dados)
+
+library(tidyverse)
+library(RSQLite)
+
+
+# 0=============================================================================
+
+# Sim
+
+# 1=============================================================================
+
+path = "Dados"
+ex3 = list.files(directory)[3] %>% str_remove(".csv") %>%
+  str_split('_') %>% unlist() %>% tail(1)
+ex2 = file.path(path, list.files(path)[3])
+
+ex1 = read_csv(ex2,n_max = 5)
+ex1 %>% mutate(cidade = ex3)
+
+my_cols = cols_only(YEAR = 'i',JAN = 'd',FEB = 'd',MAR = 'd',
+                    APR = 'd',MAY = 'd',JUN = 'd',JUL = 'd',AUG = 'd',
+                    SEP = 'd',OCT = 'd',NOV = 'd',DEC = 'd')
+
+ex1 = read_csv(ex2,col_types = my_cols )
+
+
+processaDados = function(path){
+  
+  bdfile = file.path(path, "temperaturas.sqlite3")
+  
+  
+  if (file.exists(bdfile))
+    file.remove(bdfile)
+  
+  conexao = dbConnect(SQLite(), bdfile)
+  
+  
+  for (arquivo in list.files(path, pattern = ".csv$")){
+    
+    nome_cidade = arquivo %>% str_remove(".csv") %>%
+      str_split('_') %>% unlist() %>% tail(1)
+    
+    arq = file.path(path, arquivo)
+    
+    
+    my_cols = cols_only(YEAR = 'i',JAN = 'd',FEB = 'd',MAR = 'd',
+                        APR = 'd',MAY = 'd',JUN = 'd',JUL = 'd',AUG = 'd',
+                        SEP = 'd',OCT = 'd',NOV = 'd',DEC = 'd')
+    
+    arquivo = read_csv(arq, show_col_types = FALSE,
+                       n_max = 30, col_types = my_cols)
+    
+    #read_csv_chunked(arq,
+    #                 col_types = mycols,
+    #                chunk_size = 30,
+    #                 callback = SideEffectChunkCallback$new(lerDados))
+    
+    
+    input = arquivo %>%
+      mutate( cidade = "nome")
+    
+    dbWriteTable(conexao, "dados", input, append = TRUE)
+      
+    
+    
+  }
+  return(conexao)
+}
+
+path ="Dados"
+
+con = processaDados(path)
+
+
+# 2=============================================================================
+
+
+
+
+# 3=============================================================================
+
+
+
+
+
+# 4=============================================================================
+
+

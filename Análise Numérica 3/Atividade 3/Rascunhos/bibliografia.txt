@@ -1,0 +1,2 @@
+https://demonstrations.wolfram.com/GaussianQuadrature/
+http://www2.math.ou.edu/~npetrov/gauss_quad_proof.pdf
